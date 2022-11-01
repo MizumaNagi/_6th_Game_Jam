@@ -7,14 +7,20 @@ public class DrawBezierCurve : MonoBehaviour
     [SerializeField] private GameObject linePrefab;
     [SerializeField] private Transform pointParent;
 
+    [SerializeField] private Transform start;
+    [SerializeField] private Transform startHandle;
+    [SerializeField] private bool isUseStartHandle;
+    [SerializeField] private Transform end;
+    [SerializeField] private Transform endHandle;
+    [SerializeField] private bool isUseEndHandle;
     [SerializeField] private GameObject markerObj;
     [SerializeField, Range(0f, 1f)] private float markerT;
 
-    private const int drawLineCnt = 30;
+    private const int drawLineCnt = 20;
     private GameObject[] lineObjArr = new GameObject[drawLineCnt];
     private Transform[] pointArr;
     private Transform lineObjParent;
-    Vector3[] pointPosArr;
+    private Vector3[] pointPosArr;
 
     private void Start()
     {
@@ -37,7 +43,10 @@ public class DrawBezierCurve : MonoBehaviour
     private void Update()
     {
         int pListLen = pointArr.Length;
-        if (pListLen < 3) { Debug.Log(pListLen); return; }
+        if (pListLen < 3) { Debug.Log("ベジェ曲線の描画には少なくとも3点以上の座標(pointArr)が必要です。"); return; }
+
+        if (isUseStartHandle == false) startHandle.position = start.transform.position;
+        if (isUseEndHandle == false) endHandle.position = end.transform.position;
 
         pointPosArr = new Vector3[pListLen];
         for (int i = 0; i < pListLen; i++)
