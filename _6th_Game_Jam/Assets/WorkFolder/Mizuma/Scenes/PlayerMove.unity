@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 434532333}
   - component: {fileID: 434532332}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -764,7 +764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434532329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 2.28}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1664,7 +1664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731916404}
   m_LocalRotation: {x: 0.3734583, y: 0.00000044703472, z: -0.000014007088, w: 0.92764693}
-  m_LocalPosition: {x: -0, y: 8.78, z: -8.22}
+  m_LocalPosition: {x: 0, y: 8.78, z: -8.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2363,10 +2363,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1297886463}
   - component: {fileID: 1297886464}
-  - component: {fileID: 1297886465}
-  - component: {fileID: 1297886466}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Train
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2401,7 +2399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd68de1aabf98be4aaec468886d2d537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.8
+  vertSpeed: 1
+  horiSpeed: 3.5
   railArr:
   - {fileID: 2131449231}
   - {fileID: 111593082}
@@ -2423,40 +2422,7 @@ MonoBehaviour:
   - {fileID: 173696850}
   - {fileID: 72639363}
   - {fileID: 692831301}
---- !u!65 &1297886465
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297886462}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1297886466
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297886462}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!4 &1414549215 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3139253476024241535, guid: 0ce8c626975b6a24180da1733bae8187, type: 3}
-  m_PrefabInstance: {fileID: 3139253474473683155}
-  m_PrefabAsset: {fileID: 0}
+  player: {fileID: 434532330}
 --- !u!1 &1427496526
 GameObject:
   m_ObjectHideFlags: 0
@@ -3375,52 +3341,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1380147770968604328, guid: e986ec227732e494aaedaf85eb7f3925, type: 3}
   m_PrefabInstance: {fileID: 589322492}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2096982219
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2096982221}
-  - component: {fileID: 2096982220}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2096982220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096982219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d79a83e0be9fc04a8a3e5b907ebbb1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapParent: {fileID: 1414549215}
-  debugBezierParent: {fileID: 1427496527}
---- !u!4 &2096982221
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096982219}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.503273, y: -15.263182, z: 29.824926}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2131449231 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4086586132506064532, guid: 0ce8c626975b6a24180da1733bae8187, type: 3}

@@ -24,6 +24,5 @@ public class UpdateRailInfoInPlay : MonoBehaviour
             s += bezierPosParent.GetChild(2).position;
             s += '\n';
         }
-        Debug.Log(s);
     }
 }
