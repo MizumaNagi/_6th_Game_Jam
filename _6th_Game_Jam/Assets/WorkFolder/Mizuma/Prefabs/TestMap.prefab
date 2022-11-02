@@ -60,7 +60,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5045814817804416056, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_Name
-      value: TestMap_Straight (2)
+      value: TestMap_03
       objectReference: {fileID: 0}
     - target: {fileID: 5570255078848343682, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_RootOrder
@@ -122,7 +122,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5045814817804416056, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_Name
-      value: TestMap_Straight (7)
+      value: TestMap_11
       objectReference: {fileID: 0}
     - target: {fileID: 5570255078848343682, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_RootOrder
@@ -184,7 +184,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1428948342092975425, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_Name
-      value: TestMap_Curve_Base
+      value: TestMap_20
       objectReference: {fileID: 0}
     - target: {fileID: 1774264728074688507, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_RootOrder
@@ -246,7 +246,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1428948342092975425, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_Name
-      value: TestMap_Curve_Base (4)
+      value: TestMap_12
       objectReference: {fileID: 0}
     - target: {fileID: 1774264728074688507, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_RootOrder
@@ -308,7 +308,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5045814817804416056, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_Name
-      value: TestMap_Straight (8)
+      value: TestMap_18
       objectReference: {fileID: 0}
     - target: {fileID: 5570255078848343682, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_RootOrder
@@ -370,7 +370,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1428948342092975425, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_Name
-      value: TestMap_Curve_Base (9)
+      value: TestMap_17
       objectReference: {fileID: 0}
     - target: {fileID: 1774264728074688507, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_RootOrder
@@ -432,7 +432,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5045814817804416056, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_Name
-      value: TestMap_Straight (3)
+      value: TestMap_05
       objectReference: {fileID: 0}
     - target: {fileID: 5570255078848343682, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_RootOrder
@@ -494,7 +494,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1428948342092975425, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_Name
-      value: TestMap_Curve_Base (3)
+      value: TestMap_09
       objectReference: {fileID: 0}
     - target: {fileID: 1774264728074688507, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_RootOrder
@@ -556,7 +556,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1428948342092975425, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_Name
-      value: TestMap_Curve_Base (2)
+      value: TestMap_08
       objectReference: {fileID: 0}
     - target: {fileID: 1774264728074688507, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_RootOrder
@@ -618,7 +618,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1428948342092975425, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_Name
-      value: TestMap_Curve_Base (7)
+      value: TestMap_15
       objectReference: {fileID: 0}
     - target: {fileID: 1774264728074688507, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_RootOrder
@@ -680,7 +680,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1428948342092975425, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_Name
-      value: TestMap_Curve_Base (8)
+      value: TestMap_16
       objectReference: {fileID: 0}
     - target: {fileID: 1774264728074688507, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_RootOrder
@@ -742,7 +742,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1428948342092975425, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_Name
-      value: TestMap_Curve_Base (1)
+      value: TestMap_04
       objectReference: {fileID: 0}
     - target: {fileID: 1774264728074688507, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_RootOrder
@@ -804,7 +804,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5045814817804416056, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_Name
-      value: TestMap_Straight (1)
+      value: TestMap_02
       objectReference: {fileID: 0}
     - target: {fileID: 5570255078848343682, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_RootOrder
@@ -866,7 +866,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1428948342092975425, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_Name
-      value: TestMap_Curve_Base (6)
+      value: TestMap_14
       objectReference: {fileID: 0}
     - target: {fileID: 1774264728074688507, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_RootOrder
@@ -928,7 +928,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5045814817804416056, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_Name
-      value: TestMap_Straight (6)
+      value: TestMap_10
       objectReference: {fileID: 0}
     - target: {fileID: 5570255078848343682, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_RootOrder
@@ -990,7 +990,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5045814817804416056, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_Name
-      value: TestMap_Straight (9)
+      value: TestMap_19
       objectReference: {fileID: 0}
     - target: {fileID: 5570255078848343682, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_RootOrder
@@ -1052,7 +1052,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1428948342092975425, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_Name
-      value: TestMap_Curve_Base (5)
+      value: TestMap_13
       objectReference: {fileID: 0}
     - target: {fileID: 1774264728074688507, guid: 9cb681799dea31b4089e30e1c6247d75, type: 3}
       propertyPath: m_RootOrder
@@ -1114,7 +1114,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5045814817804416056, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_Name
-      value: TestMap_Straight (4)
+      value: TestMap_06
       objectReference: {fileID: 0}
     - target: {fileID: 5570255078848343682, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_RootOrder
@@ -1176,7 +1176,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5045814817804416056, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_Name
-      value: TestMap_Straight (5)
+      value: TestMap_07
       objectReference: {fileID: 0}
     - target: {fileID: 5570255078848343682, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_RootOrder
@@ -1238,7 +1238,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5045814817804416056, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_Name
-      value: TestMap_Straight
+      value: TestMap_01
       objectReference: {fileID: 0}
     - target: {fileID: 5570255078848343682, guid: c44846b141cd80e44ae42009b9908741, type: 3}
       propertyPath: m_RootOrder
