@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField, Range(0f, 5f)] private float speed;
+    [SerializeField] private RailinfoBetweenArea[] railArr;
 
+    private const float CanMoveHorizontalVal = 2f;
+    private float currentHorizontalMoveVal;
     private Transform myTrans;
     private Vector3 beforeFramePos;
 
@@ -14,9 +17,18 @@ public class PlayerMove : MonoBehaviour
         myTrans = this.transform;
     }
 
+    float deltaTime = 0f;
     private void Update()
     {
-        //transform.position += transform.forward * speed * Time.deltaTime;
+        // é©ìÆà⁄ìÆ
+        deltaTime += Time.deltaTime * speed;
+        RailinfoBetweenArea targetRail = railArr[Mathf.FloorToInt(deltaTime) % railArr.Length];
+        myTrans.position = DrawBezierCurve.GetBezierPos(targetRail.GetProperty(), deltaTime % 1f);
+
+        // â°à⁄ìÆ
+
+
+        // éãì_êÿÇËë÷Ç¶
         RotForward();
     }
 
@@ -33,7 +45,7 @@ public class PlayerMove : MonoBehaviour
         if (other.CompareTag("Rail") == true)
         {
             RailinfoBetweenArea railArea = other.GetComponent<AreaTriggerController>().OnTrigger();
-            Debug.Log(other.gameObject.name);
+            //Debug.Log(other.gameObject.name);
         }
     }
 }

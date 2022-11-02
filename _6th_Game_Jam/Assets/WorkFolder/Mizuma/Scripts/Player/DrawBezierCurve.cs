@@ -16,7 +16,7 @@ public class DrawBezierCurve : MonoBehaviour
     [SerializeField] private GameObject markerObj;
     [SerializeField, Range(0f, 1f)] private float markerT;
 
-    private const int drawLineCnt = 20;
+    private const int drawLineCnt = 10;
     private GameObject[] lineObjArr = new GameObject[drawLineCnt];
     private Transform[] pointArr;
     private Transform lineObjParent;
@@ -42,6 +42,8 @@ public class DrawBezierCurve : MonoBehaviour
 
     private void Update()
     {
+        markerT += 0.01f;
+        markerT %= 1f;
         int pListLen = pointArr.Length;
         if (pListLen < 3) { Debug.Log("ベジェ曲線の描画には少なくとも3点以上の座標(pointArr)が必要です。"); return; }
 
@@ -67,7 +69,7 @@ public class DrawBezierCurve : MonoBehaviour
         }
     }
 
-    private Vector3 GetBezierPos(Vector3[] vertexPosArr, float t)
+    public static Vector3 GetBezierPos(Vector3[] vertexPosArr, float t)
     {
         List<Vector3> betweenEachVertexList = new List<Vector3>();
         betweenEachVertexList.AddRange(vertexPosArr);
@@ -82,7 +84,7 @@ public class DrawBezierCurve : MonoBehaviour
         return betweenEachVertexList[0];
     }
 
-    private Vector3[] GetBetweenEachVertex(Vector3[] vertexPosArr, float t)
+    private static Vector3[] GetBetweenEachVertex(Vector3[] vertexPosArr, float t)
     {
         int argVertexLen = vertexPosArr.Length;
         if (argVertexLen == 0) return new Vector3[] { Vector3.zero };
