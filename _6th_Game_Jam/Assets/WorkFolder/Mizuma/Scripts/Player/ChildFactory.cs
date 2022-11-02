@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class ChildFactory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Transform childParent;
+    [SerializeField] private GameObject childPrefab;
+
+    public void BirthChild(int num)
     {
-        
+        for(int i = 0; i < num; i++)
+        {
+            Transform newChild = Instantiate(childPrefab).transform;
+            newChild.SetParent(childParent);
+            newChild.position = new Vector3(100000f, newChild.position.y, 0f);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void KillChild(int num)
     {
-        
+
     }
 }

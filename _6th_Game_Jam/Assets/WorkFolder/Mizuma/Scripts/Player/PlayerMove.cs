@@ -11,12 +11,14 @@ public class PlayerMove : MonoBehaviour
     [SerializeField, Range(0f, 5f)] private float horiSpeed;
     [SerializeField] private RailinfoBetweenArea[] railArr;
     [SerializeField] private Transform player;
+    [SerializeField] private Transform childParent;
 
     private const float CanMoveHorizontalVal = 2f;
+
     private float currentHorizontalMoveVal;
     private Transform myTrans;
     private Vector3 beforeFramePos;
-    private float deltaTime = 0f;
+    private float totalDeltaTime = 0f;
 
     public bool isStop = false;
 
@@ -31,23 +33,39 @@ public class PlayerMove : MonoBehaviour
         if (isStop == true) return;
 
         // ü˜Hî•ñæ“¾
-        deltaTime += Time.deltaTime * vertSpeed;
-        RailinfoBetweenArea targetRail = railArr[Mathf.FloorToInt(deltaTime) % railArr.Length];
+        float deltaTime = Time.deltaTime;
+        totalDeltaTime += deltaTime * vertSpeed;
+        RailinfoBetweenArea targetRail = railArr[Mathf.FloorToInt(totalDeltaTime) % railArr.Length];
 
         // ‰¡ˆÚ“®
-        if (Input.GetKey(KeyCode.A)) currentHorizontalMoveVal -= Time.deltaTime * horiSpeed;
-        if (Input.GetKey(KeyCode.D)) currentHorizontalMoveVal += Time.deltaTime * horiSpeed;
+        if (Input.GetKey(KeyCode.A)) currentHorizontalMoveVal -= deltaTime * horiSpeed;
+        if (Input.GetKey(KeyCode.D)) currentHorizontalMoveVal += deltaTime * horiSpeed;
         currentHorizontalMoveVal = Mathf.Min(currentHorizontalMoveVal, CanMoveHorizontalVal);
         currentHorizontalMoveVal = Mathf.Max(currentHorizontalMoveVal, -CanMoveHorizontalVal);
         
         // æ‚Á‚Ä‚«‚½ü˜H‚É‰ˆ‚Á‚ÄˆÚ“®
-        myTrans.position = DrawBezierCurve.GetBezierPos(targetRail.GetProperty(), deltaTime % 1f);
+        myTrans.position = DrawBezierCurve.GetBezierPos(targetRail.GetProperty(), totalDeltaTime % 1f);
 
         // ƒJƒƒ‰Šp“x’²®
         RotForward();
 
         // ‰¡ˆÚ“®”½‰f
         myTrans.position += transform.rotation * new Vector3(currentHorizontalMoveVal, 0f, 0f);
+
+        // q‹Ÿ‚½‚¿‚ğ’x‰„‚İ‚Å’Ç”ö‚³‚¹‚é
+        Vector3 curFramePos = myTrans.position;
+        for (int i = 0; i < childParent.childCount; i++)
+        {
+            StartCoroutine(DelayMove(childParent.GetChild(i), curFramePos, myTrans.rotation, 0.1f * (i + 1)));
+        }
+    }
+
+    private IEnumerator DelayMove(Transform child, Vector3 pos, Quaternion rot, float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        child.position = new Vector3(pos.x, child.position.y, pos.z);
+        child.rotation = rot;
     }
 
     private void RotForward()
