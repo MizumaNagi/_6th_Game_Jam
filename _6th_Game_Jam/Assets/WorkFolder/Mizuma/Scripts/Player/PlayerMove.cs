@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーのベジェ曲線移動, 左右移動の処理をするクラス
+/// </summary>
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField, Range(0f, 5f)] private float vertSpeed;
@@ -13,6 +16,9 @@ public class PlayerMove : MonoBehaviour
     private float currentHorizontalMoveVal;
     private Transform myTrans;
     private Vector3 beforeFramePos;
+    private float deltaTime = 0f;
+
+    public bool isStop = false;
 
     private void Start()
     {
@@ -20,9 +26,10 @@ public class PlayerMove : MonoBehaviour
         beforeFramePos = myTrans.position;
     }
 
-    float deltaTime = 0f;
     private void Update()
     {
+        if (isStop == true) return;
+
         // 線路情報取得
         deltaTime += Time.deltaTime * vertSpeed;
         RailinfoBetweenArea targetRail = railArr[Mathf.FloorToInt(deltaTime) % railArr.Length];

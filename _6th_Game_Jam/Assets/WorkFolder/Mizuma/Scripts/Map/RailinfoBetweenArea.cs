@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// ブロック状のマップで正しく誘導させる為に、必要な位置座標の集まり
+/// </summary>
 public class RailinfoBetweenArea : MonoBehaviour
 {
     [SerializeField] private Vector3 startPos;

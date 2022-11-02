@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ベジェ曲線の描画、値を求めるクラス
+/// </summary>
 public class DrawBezierCurve : MonoBehaviour
 {
     [SerializeField] private GameObject linePrefab;

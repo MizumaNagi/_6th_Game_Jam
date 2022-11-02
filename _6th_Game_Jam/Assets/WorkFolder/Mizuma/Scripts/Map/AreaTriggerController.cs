@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ブロック状のマップがプレイヤーを検知するクラス
+/// </summary>
 public class AreaTriggerController : MonoBehaviour
 {
     [SerializeField] private BoxCollider frontTrigger;
