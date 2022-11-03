@@ -22,13 +22,13 @@ public class PlayerMove : MonoBehaviour
 
     public bool isStop = false;
 
-    private void Start()
+    public void ManagedStart()
     {
         myTrans = this.transform;
         beforeFramePos = myTrans.position;
     }
 
-    private void Update()
+    public void ManagedUpdate()
     {
         if (isStop == true) return;
 
@@ -63,6 +63,8 @@ public class PlayerMove : MonoBehaviour
     private IEnumerator DelayMove(Transform child, Vector3 pos, Quaternion rot, float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
+
+        if (child == null) yield break;
 
         child.position = new Vector3(pos.x, child.position.y, pos.z);
         child.rotation = rot;

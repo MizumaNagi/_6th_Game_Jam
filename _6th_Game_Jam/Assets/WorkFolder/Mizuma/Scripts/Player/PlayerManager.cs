@@ -6,6 +6,7 @@ public class PlayerManager : SingletonClass<PlayerManager>
 {
     [SerializeField] private ChildFactory childFactory;
     [SerializeField] private PlayerData playerData;
+    [SerializeField] private PlayerMove playerMove;
     [SerializeField] private CameraController camCon;
 
     public ChildFactory ChildFactory => childFactory;
@@ -14,12 +15,12 @@ public class PlayerManager : SingletonClass<PlayerManager>
     private void Start()
     {
         camCon.ManagedStart();
-        BirthChild(10);
+        playerMove.ManagedStart();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) BirthChild(10);
+        playerMove.ManagedUpdate();
     }
 
     public void BirthChild(int num)
@@ -31,7 +32,15 @@ public class PlayerManager : SingletonClass<PlayerManager>
 
     public void KillChild(int num)
     {
-        playerData.playerLength -= num;
-        childFactory.KillChild(num);
+        int afterNum = childFactory.GetCanKillChildCnt(num);
+        if (num != afterNum)
+        {
+            Debug.Log("<color=red>Game Over !</color>");
+            playerMove.isStop = true;
+        }
+
+        playerData.playerLength -= afterNum;
+        childFactory.KillChild(afterNum);
+        camCon.UpdateCameraView(playerData.playerLength);
     }
 }

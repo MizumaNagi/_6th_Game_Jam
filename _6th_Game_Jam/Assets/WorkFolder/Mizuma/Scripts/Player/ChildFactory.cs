@@ -19,6 +19,15 @@ public class ChildFactory : MonoBehaviour
 
     public void KillChild(int num)
     {
+        for (int i = 0; i < num; i++)
+        {
+            Destroy(childParent.GetChild(i).gameObject);
+        }
+    }
 
+    public int GetCanKillChildCnt(int num)
+    {
+        if (childParent.childCount < num) return childParent.childCount;
+        else return num;
     }
 }
