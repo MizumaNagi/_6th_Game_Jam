@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class SingletonClass<T> : MonoBehaviour where T : MonoBehaviour
 {
-    protected bool canLiveSceneOver = false;
+    [SerializeField] protected bool canLiveSceneOver = false;
     private static T instance;
     public static T Instance
     {

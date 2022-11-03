@@ -25,6 +25,7 @@ public class PlayerManager : SingletonClass<PlayerManager>
 
     public void BirthChild(int num)
     {
+        SoundManager.Instance.PlaySE(SEName.Collect_Item);
         playerData.playerLength += num;
         childFactory.BirthChild(num);
         camCon.UpdateCameraView(playerData.playerLength);
@@ -32,6 +33,7 @@ public class PlayerManager : SingletonClass<PlayerManager>
 
     public void KillChild(int num)
     {
+        SoundManager.Instance.PlaySE(SEName.On_Damage);
         int afterNum = childFactory.GetCanKillChildCnt(num);
         if (num != afterNum)
         {
