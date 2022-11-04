@@ -19,6 +19,7 @@ public class PlayerMove : MonoBehaviour
     private Transform myTrans;
     private Vector3 beforeFramePos;
     private float totalDeltaTime = 0f;
+    private Coroutine loopPlayRunEffectCoroutine = null;
 
     public bool isStop = false;
 
@@ -26,11 +27,12 @@ public class PlayerMove : MonoBehaviour
     {
         myTrans = this.transform;
         beforeFramePos = myTrans.position;
+        loopPlayRunEffectCoroutine = StartCoroutine(LoopPlayRunEffect());
     }
 
     public void ManagedUpdate()
     {
-        if (isStop == true) return;
+        if (isStop == true) { StopCoroutine(loopPlayRunEffectCoroutine); return; }
 
         // ê¸òHèÓïÒéÊìæ
         float deltaTime = Time.deltaTime;
@@ -57,6 +59,15 @@ public class PlayerMove : MonoBehaviour
         for (int i = 0; i < childParent.childCount; i++)
         {
             StartCoroutine(DelayMove(childParent.GetChild(i), curFramePos, myTrans.rotation, 0.1f * (i + 1)));
+        }
+    }
+
+    private IEnumerator LoopPlayRunEffect()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(60f / 208.45f);
+            EffectManager.Instance.PlayEffect(EffectManager.EffectType.Run_Smoke, player.position);
         }
     }
 
