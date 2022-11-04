@@ -47,6 +47,7 @@ MonoBehaviour:
   canLiveSceneOver: 0
   effectPrefabs:
   - {fileID: 5981535364432398346, guid: 384d345478a9d964fa06f97e667d3a50, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5440333238751906479, guid: ae1224439e55061468e2df647588d1de, type: 3}
+  - {fileID: 3811154099357371408, guid: c00225b94c1df5346a3030b48e830638, type: 3}
+  - {fileID: 6459283605921210427, guid: 087f2610ba1befc43aa946d551a97b7a, type: 3}
+  - {fileID: 6652052842455048110, guid: 82633d0a0ee1b8d429bf8728f38e3ac8, type: 3}
