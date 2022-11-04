@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-    public int playerLength;
+    [System.NonSerialized] public int playerLength;
 }

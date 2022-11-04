@@ -42,8 +42,9 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey(KeyCode.D)) currentHorizontalMoveVal += deltaTime * horiSpeed;
         currentHorizontalMoveVal = Mathf.Min(currentHorizontalMoveVal, CanMoveHorizontalVal);
         currentHorizontalMoveVal = Mathf.Max(currentHorizontalMoveVal, -CanMoveHorizontalVal);
-        
+
         // æ‚Á‚Ä‚«‚½ü˜H‚É‰ˆ‚Á‚ÄˆÚ“®
+        targetRail.SetProperty();
         myTrans.position = DrawBezierCurve.GetBezierPos(targetRail.GetProperty(), totalDeltaTime % 1f);
 
         // ƒJƒƒ‰Šp“x’²®
