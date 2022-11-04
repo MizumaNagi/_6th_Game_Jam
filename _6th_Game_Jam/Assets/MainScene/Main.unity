@@ -1273,30 +1273,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9195210914940351768, guid: 24cadc5737bb76d4088e1c66f8330308, type: 3}
-      propertyPath: seClips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 8cf99bbd4d5814a49863ee65d85cd306, type: 3}
-    - target: {fileID: 9195210914940351768, guid: 24cadc5737bb76d4088e1c66f8330308, type: 3}
-      propertyPath: seClips.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 399ec4d1b9b93e942bf9a0d1d1e35c0a, type: 3}
-    - target: {fileID: 9195210914940351768, guid: 24cadc5737bb76d4088e1c66f8330308, type: 3}
-      propertyPath: seClips.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: e4144e3e08f1cdd469ec3c568fe3fee5, type: 3}
-    - target: {fileID: 9195210914940351768, guid: 24cadc5737bb76d4088e1c66f8330308, type: 3}
-      propertyPath: seClips.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 95c5ec03dc7952247b5cac22dfdd3538, type: 3}
-    - target: {fileID: 9195210914940351768, guid: 24cadc5737bb76d4088e1c66f8330308, type: 3}
-      propertyPath: seClips.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: 1d9986075d1d5b947b83de9b686800df, type: 3}
-    - target: {fileID: 9195210914940351768, guid: 24cadc5737bb76d4088e1c66f8330308, type: 3}
-      propertyPath: bgmClips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 849e1fd7f3b00a54b862763d9167924a, type: 3}
     - target: {fileID: 9195210914940351769, guid: 24cadc5737bb76d4088e1c66f8330308, type: 3}
       propertyPath: m_Name
       value: SoundManager

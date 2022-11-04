@@ -112,18 +112,16 @@ MonoBehaviour:
   canLiveSceneOver: 1
   bgmParent: {fileID: 516718381758705744}
   bgmChannelValue: 1
-  bgmVolume: 1
   bgmClips:
-  - {fileID: 8300000, guid: 3500d87a0c351674095c46c0a309ffe2, type: 3}
+  - {fileID: 8300000, guid: 849e1fd7f3b00a54b862763d9167924a, type: 3}
   seParent: {fileID: 3458752865425897016}
   seChannelValue: 10
-  seVolume: 1
   seClips:
-  - {fileID: 8300000, guid: 9a541b2c2ee98504f9707c19dbd97150, type: 3}
-  - {fileID: 8300000, guid: b07a8f4542f5c0c4eb429f28879911da, type: 3}
-  - {fileID: 8300000, guid: fcf7ae4e7bbb7b94eb3aa0d10516df8b, type: 3}
-  - {fileID: 8300000, guid: 1831ffe025ed99d4fbfa691467884eeb, type: 3}
-  - {fileID: 8300000, guid: 9a513d1e522eb384f90ef2563ac262de, type: 3}
+  - {fileID: 8300000, guid: 8cf99bbd4d5814a49863ee65d85cd306, type: 3}
+  - {fileID: 8300000, guid: 399ec4d1b9b93e942bf9a0d1d1e35c0a, type: 3}
+  - {fileID: 8300000, guid: e4144e3e08f1cdd469ec3c568fe3fee5, type: 3}
+  - {fileID: 8300000, guid: 95c5ec03dc7952247b5cac22dfdd3538, type: 3}
+  - {fileID: 8300000, guid: 1d9986075d1d5b947b83de9b686800df, type: 3}
 --- !u!81 &4255282223752377996
 AudioListener:
   m_ObjectHideFlags: 0
