@@ -288,10 +288,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   curveType: 2
-  startPos: {x: 0, y: 0, z: 0}
-  startHandlePos: {x: 0, y: 0, z: 0}
-  endHandlePos: {x: 0, y: 0, z: 0}
-  endPos: {x: 0, y: 0, z: 0}
 --- !u!1 &5532073238235251958
 GameObject:
   m_ObjectHideFlags: 0

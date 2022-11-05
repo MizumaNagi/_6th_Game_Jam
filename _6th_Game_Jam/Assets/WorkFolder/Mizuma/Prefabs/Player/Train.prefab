@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8631731620572909504}
   m_Layer: 0
   m_Name: ChildParent
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 4211053105720451567}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 1714290620358570738}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 5146926754081632623}
   m_Layer: 0
   m_Name: Train
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a760d391c3b03a948b2e4dd8440a4647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canLiveSceneOver: 0
   childFactory: {fileID: 5146926754081632623}
   playerData: {fileID: 3195130572252846437}
   playerMove: {fileID: 4211053106588263169}
@@ -337,7 +338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e577e29256d5fec419d3f0ab878d81eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLength: 1
 --- !u!114 &5146926754081632623
 MonoBehaviour:
   m_ObjectHideFlags: 0

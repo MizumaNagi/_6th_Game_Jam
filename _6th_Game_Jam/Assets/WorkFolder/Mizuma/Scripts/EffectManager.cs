@@ -25,6 +25,7 @@ public class EffectManager : SingletonClass<EffectManager>
         Run_Smoke,
         Take_Damage,
         On_Damage,
+        Death_Enemy,
         Collect_Item
     }
 }
