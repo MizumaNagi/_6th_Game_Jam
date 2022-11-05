@@ -2,5 +2,17 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-    [System.NonSerialized] public int playerLength;
+    private int playerHp = 1;
+    public int PlayerHp => playerHp;
+
+    public void HealHp(int num)
+    {
+        playerHp += num;
+    }
+
+    public bool TakeDamage(int num)
+    {
+        playerHp -= num;
+        return playerHp <= 0;
+    }
 }
