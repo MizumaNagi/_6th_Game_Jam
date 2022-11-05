@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 beforeFramePos;
     private float totalDeltaTime = 0f;
     private Coroutine loopPlayRunEffectCoroutine = null;
+    private List<Coroutine> childMoveCorutineList = new List<Coroutine>();
 
     public bool isStop = false;
 
@@ -32,7 +33,24 @@ public class PlayerMove : MonoBehaviour
 
     public void ManagedUpdate()
     {
-        if (isStop == true) { StopCoroutine(loopPlayRunEffectCoroutine); return; }
+        if (isStop == true)
+        {
+            if (loopPlayRunEffectCoroutine != null)
+            {
+                StopCoroutine(loopPlayRunEffectCoroutine);
+                loopPlayRunEffectCoroutine = null;
+            }
+
+            foreach(Coroutine coroutine in childMoveCorutineList.ToArray())
+            {
+                StopCoroutine(coroutine);
+            }
+            childMoveCorutineList.Clear();
+
+            return;
+        }
+
+        if (loopPlayRunEffectCoroutine == null) loopPlayRunEffectCoroutine = StartCoroutine(LoopPlayRunEffect());
 
         // ê¸òHèÓïÒéÊìæ
         float deltaTime = Time.deltaTime;
@@ -59,7 +77,7 @@ public class PlayerMove : MonoBehaviour
         Vector3 curFramePos = myTrans.position;
         for (int i = 0; i < childParent.childCount; i++)
         {
-            StartCoroutine(DelayMove(childParent.GetChild(i), curFramePos, myTrans.rotation, 0.1f * (i + 1)));
+            childMoveCorutineList.Add(StartCoroutine(DelayMove(childParent.GetChild(i), curFramePos, myTrans.rotation, 0.1f * (i + 1))));
         }
     }
 
