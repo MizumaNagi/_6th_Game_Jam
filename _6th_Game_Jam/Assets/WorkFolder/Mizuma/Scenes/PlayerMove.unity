@@ -2730,6 +2730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestMap_Pack
       objectReference: {fileID: 0}
+    - target: {fileID: 5334360661381739809, guid: 398368dc217e946459cbae25d251a4d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5334360661381739810, guid: 398368dc217e946459cbae25d251a4d2, type: 3}
       propertyPath: m_RootOrder
       value: 1
