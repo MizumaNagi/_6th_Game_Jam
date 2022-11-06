@@ -6,12 +6,15 @@ public class ChildFactory : MonoBehaviour
 {
     [SerializeField] private Transform childParent;
     [SerializeField] private GameObject childPrefab;
+    [SerializeField] private GameObject[] allyPrefabArr;
 
     public void BirthChild(int num)
     {
         for(int i = 0; i < num; i++)
         {
-            Transform newChild = Instantiate(childPrefab).transform;
+            int rnd = Random.Range(0, allyPrefabArr.Length);
+
+            Transform newChild = Instantiate(allyPrefabArr[rnd]).transform;
             newChild.SetParent(childParent);
             newChild.position = new Vector3(100000f, newChild.position.y, 0f);
         }

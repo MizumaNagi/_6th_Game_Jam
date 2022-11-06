@@ -16,6 +16,7 @@ public class PlayerManager : SingletonClass<PlayerManager>
     {
         camCon.ManagedStart();
         playerMove.ManagedStart();
+        childFactory.BirthChild(1);
     }
 
     private void Update()
