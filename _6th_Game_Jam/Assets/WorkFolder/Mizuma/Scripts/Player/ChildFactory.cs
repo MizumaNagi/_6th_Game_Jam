@@ -20,6 +20,16 @@ public class ChildFactory : MonoBehaviour
         }
     }
 
+    public void RegisterChild(GameObject[] addChilds)
+    {
+        for(int i = 0; i < addChilds.Length; i++)
+        {
+            Transform addChild = addChilds[i].transform;
+            addChild.transform.SetParent(childParent);
+            addChild.position = new Vector3(100000f, addChild.position.y, 0f);
+        }
+    }
+
     public void KillChild(int num)
     {
         for (int i = 0; i < num; i++)
