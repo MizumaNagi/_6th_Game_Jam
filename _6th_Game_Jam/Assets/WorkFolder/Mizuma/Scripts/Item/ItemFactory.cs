@@ -14,46 +14,58 @@ public class ItemFactory : SingletonClass<ItemFactory>
 
     private void Start()
     {
-        CreateItem(Item.ItemType.Heal, new Vector3(0, 0, 15), new Vector3(0f, 180f, 0f));
-        CreateItem(Item.ItemType.Enemy, new Vector3(0, 0, 30), new Vector3(0f, 180f, 0f));
-        CreateItem(Item.ItemType.Enemy_Large, new Vector3(0, 0, 45), new Vector3(0f, 180f, 0f));
+        // 1ポイント回復するアイテムを(0, 0, 15)に生成する
+        ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 1, new Vector3(0, 0, 15));
+
+        // 1ポイントのHPを持つ敵を(0, 0, 30)に生成する
+        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 1, new Vector3(0, 0, 30));
+
+        // 5ポイントのHPを持つ巨大な敵を(0, 0, 45)に生成する
+        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy_Large, 5, new Vector3(0, 0, 45));
     }
 
-    public void CreateItem(Item.ItemType type, Vector3 pos, Vector3? rot = null)
+    public void CreateItem(Item.ItemType type, int effectPower, Vector3 pos, Vector3? rot = null)
     {
         Vector3 targetRot = rot ?? new Vector3(0f, 180f, 0f);
+        Transform newItem = null;
+        Item itemCompo = null;
 
         if (type == Item.ItemType.Enemy)
         {
             int rnd = Random.Range(0, enemyPrefabArr.Length);
-            Transform newEnemy = Instantiate(enemyPrefabArr[rnd], pos, Quaternion.Euler(targetRot)).transform;
-            newEnemy.SetParent(enemyParent);
+            newItem = Instantiate(enemyPrefabArr[rnd], pos, Quaternion.Euler(targetRot)).transform;
+            itemCompo = newItem.GetComponent<Item>();
+            newItem.SetParent(enemyParent);
         }
         else if(type == Item.ItemType.Enemy_Large)
         {
-            Transform newCastle = Instantiate(castlePrefab, pos, Quaternion.Euler(targetRot)).transform;
+            newItem = Instantiate(castlePrefab, pos, Quaternion.Euler(targetRot)).transform;
             for(int i = 1; i < 6; i++)
             {
                 int rnd = Random.Range(0, enemyPrefabArr.Length);
-                Transform newEnemy = Instantiate(enemyPrefabArr[rnd], newCastle.GetChild(i).position, newCastle.GetChild(i).rotation).transform;
-                newEnemy.SetParent(newCastle);
+                Transform newEnemy = Instantiate(enemyPrefabArr[rnd], newItem.GetChild(i).position, newItem.GetChild(i).rotation).transform;
+                newEnemy.SetParent(newItem);
                 newEnemy.GetComponent<Item>().enabled = false;
                 newEnemy.GetComponent<BoxCollider>().enabled = false;
             }
-            newCastle.transform.SetParent(enemyLargeParent);
+            itemCompo = newItem.GetComponent<Item>();
+            newItem.transform.SetParent(enemyLargeParent);
         }
         else if(type == Item.ItemType.Heal)
         {
             int rnd = Random.Range(0, allyPrefabArr.Length);
-            GameObject newHeal = Instantiate(allyPrefabArr[rnd], pos, Quaternion.Euler(targetRot));
-            newHeal.transform.SetParent(healParent);
+            newItem = Instantiate(allyPrefabArr[rnd], pos, Quaternion.Euler(targetRot)).transform;
+            newItem.SetParent(healParent);
 
-            BoxCollider collider = newHeal.AddComponent<BoxCollider>();
+            BoxCollider collider = newItem.gameObject.AddComponent<BoxCollider>();
             collider.center = new Vector3(0.5f, 7.5f, 0f);
             collider.size = new Vector3(10f, 15f, 5f);
             collider.isTrigger = true;
 
-            newHeal.AddComponent<Item>().type = Item.ItemType.Heal;
+            itemCompo = newItem.gameObject.AddComponent<Item>();
+            itemCompo.type = Item.ItemType.Heal;
         }
+
+        itemCompo.Init(effectPower);
     }
 }
