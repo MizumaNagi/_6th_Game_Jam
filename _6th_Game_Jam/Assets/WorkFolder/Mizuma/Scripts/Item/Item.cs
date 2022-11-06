@@ -11,20 +11,19 @@ public class Item : MonoBehaviour
     private int healPoint;
     private int hp;
 
-    private void Start()
+    public void Init(int effectPower)
     {
-        if (type == ItemType.Enemy) Init(0, 1);
-        else if (type == ItemType.Enemy_Large) Init(0, 5);
-        else if (type == ItemType.Heal) Init(1, 1);
-        else Debug.LogError("ItemType = NONE !");
 
-        Debug.Log("Spawn: " + type);
-    }
-
-    public void Init(int healPoint, int hp)
-    {
-        this.healPoint = healPoint;
-        this.hp = hp;
+        if(type == ItemType.Enemy || type == ItemType.Enemy_Large)
+        {
+            healPoint = 0;
+            hp = effectPower;
+        }
+        else if(type == ItemType.Heal)
+        {
+            healPoint = effectPower;
+            hp = 1;
+        }
     }
 
     private void PlayItemEffect(Collider other)
