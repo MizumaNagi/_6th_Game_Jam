@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-    private int playerHp = 0;
+    private int playerHp = 1;
     public int PlayerHp => playerHp;
 
     public void HealHp(int num)

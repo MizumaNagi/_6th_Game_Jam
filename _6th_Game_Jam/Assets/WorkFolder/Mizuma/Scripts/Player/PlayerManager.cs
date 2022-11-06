@@ -34,6 +34,16 @@ public class PlayerManager : SingletonClass<PlayerManager>
         camCon.UpdateCameraView(playerData.PlayerHp);
     }
 
+    public void BirthChild(GameObject[] catchItems)
+    {
+        SoundManager.Instance.PlaySE(SEName.Collect_Item);
+        EffectManager.Instance.PlayEffect(EffectManager.EffectType.Collect_Item, new Vector3(transform.position.x, 1.4f, transform.position.z));
+
+        playerData.HealHp(catchItems.Length);
+        childFactory.RegisterChild(catchItems);
+        camCon.UpdateCameraView(playerData.PlayerHp);
+    }
+
     public void KillChild(int num)
     {
         SoundManager.Instance.PlaySE(SEName.On_Damage);
@@ -45,7 +55,6 @@ public class PlayerManager : SingletonClass<PlayerManager>
         if (isDeath == true)
         {
             Debug.Log("<color=red>Game Over !</color>");
-            playerMove.isStop = true;
         }
 
         childFactory.KillChild(afterNum);

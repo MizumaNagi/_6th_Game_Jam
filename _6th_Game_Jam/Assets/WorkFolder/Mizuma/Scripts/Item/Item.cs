@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] private ItemType type;
+    public ItemType type;
 
-    private const float delayEachDamage = 0.33f;
+    private const float delayEachDamage = 12f / 60f;
 
     private int healPoint;
     private int hp;
@@ -15,8 +15,10 @@ public class Item : MonoBehaviour
     {
         if (type == ItemType.Enemy) Init(0, 1);
         else if (type == ItemType.Enemy_Large) Init(0, 5);
-        else if (type == ItemType.Heal) Init(5, 1);
+        else if (type == ItemType.Heal) Init(1, 1);
         else Debug.LogError("ItemType = NONE !");
+
+        Debug.Log("Spawn: " + type);
     }
 
     public void Init(int healPoint, int hp)
@@ -27,10 +29,16 @@ public class Item : MonoBehaviour
 
     private void PlayItemEffect(Collider other)
     {
-        if(type == ItemType.Enemy)
+        if(type == ItemType.Enemy || type == ItemType.Enemy_Large)
         {
             PlayerManager.Instance.StartStop();
-            //StartCoroutine(DelayTakeDamage(hp));
+            StartCoroutine(DelayTakeDamage(hp));
+        }
+        else if(type == ItemType.Heal)
+        {
+            PlayerManager.Instance.BirthChild(new GameObject[] { this.gameObject });
+            Destroy(GetComponent<BoxCollider>());
+            //UsedItem();
         }
     }
 
@@ -47,10 +55,10 @@ public class Item : MonoBehaviour
         // TODO: 敵ダメージエフェクト
         PlayerManager.Instance.KillChild(1);
         remHp--;
+        if (remHp <= 0) UsedItem();
+
         yield return new WaitForSeconds(delayEachDamage);
-        
-        if (remHp > 0) StartCoroutine(DelayTakeDamage(remHp));
-        else UsedItem();
+        StartCoroutine(DelayTakeDamage(remHp));
     }
 
     private void OnTriggerEnter(Collider other)
