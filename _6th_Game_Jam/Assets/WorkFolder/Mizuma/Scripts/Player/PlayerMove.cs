@@ -98,7 +98,7 @@ public class PlayerMove : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(60f / 208.45f);
-            EffectManager.Instance.PlayEffect(EffectManager.EffectType.Run_Smoke, player.position);
+            EffectManager.Instance.PlayEffect(EffectManager.EffectType.Run_Smoke, new Vector3(player.position.x, 0f, player.position.z));
         }
     }
 
