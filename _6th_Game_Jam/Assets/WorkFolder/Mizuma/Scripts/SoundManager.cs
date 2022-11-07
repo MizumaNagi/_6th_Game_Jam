@@ -159,6 +159,28 @@ public class SoundManager : SingletonClass<SoundManager>
         source.Play();
     }
 
+    public void StopBGM(BGMName bgmName)
+    { 
+        foreach(AudioSource bgm in bgmSources.ToArray())
+        {
+            if(bgm.clip == bgmClips[(int)bgmName])
+            {
+                bgm.Stop();
+            }
+        }
+    }
+
+    public void StopSE(SEName seName)
+    {
+        foreach (AudioSource se in seSources.ToArray())
+        {
+            if (se.clip == seClips[(int)seName])
+            {
+                se.Stop();
+            }
+        }
+    }
+
     /// <summary>
     /// BGMorSEÇÃâπó ÇïœçXÇ∑ÇÈ
     /// </summary>

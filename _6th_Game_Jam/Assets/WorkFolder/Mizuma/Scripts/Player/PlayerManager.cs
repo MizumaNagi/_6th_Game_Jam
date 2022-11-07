@@ -75,6 +75,5 @@ public class PlayerManager : SingletonClass<PlayerManager>
     public void GameEnd()
     {
         StartCoroutine(playerMove.GameEnd());
-        // TODO: ëñçsSEí‚é~
     }
 }

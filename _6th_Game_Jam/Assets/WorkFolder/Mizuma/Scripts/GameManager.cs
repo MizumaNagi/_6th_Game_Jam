@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GameManager : SingletonClass<GameManager>
 {
-    [SerializeField] private PlayerManager playerManager;
-
     protected override void Awake()
     {
         base.Awake();
@@ -18,6 +16,7 @@ public class GameManager : SingletonClass<GameManager>
 
     public void GameEnd()
     {
-        playerManager.GameEnd();
+        PlayerManager.Instance.GameEnd();
+        SoundManager.Instance.StopSE(SEName.Running);
     }
 }
