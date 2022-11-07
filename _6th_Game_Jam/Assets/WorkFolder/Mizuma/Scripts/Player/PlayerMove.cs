@@ -15,11 +15,15 @@ public class PlayerMove : MonoBehaviour
 
     private const float CanMoveHorizontalVal = 1.1f;
     private const bool useBezierMove = false;
+    private const int SaveParentPosFrameSize = 1000;
+    private const int DelayFrameEachChild = 5;
 
     private float currentHorizontalMoveVal;
     private Transform myTrans;
     private Vector3 beforeFramePos;
+    private Vector3[] parentPosEachFrame = new Vector3[SaveParentPosFrameSize];
     private float totalDeltaTime = 0f;
+    private int deltaFrame = 0;
     private Coroutine loopPlayRunEffectCoroutine = null;
     private List<Coroutine> childMoveCorutineList = new List<Coroutine>();
 
@@ -93,6 +97,38 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    public void ManagedFixedUpdate()
+    {
+        for (int i = 0; i < childParent.childCount; i++)
+        {
+            childParent.GetChild(i).position = parentPosEachFrame[GetSurplusSupportMinusValue(deltaFrame - (i + 1) * DelayFrameEachChild, SaveParentPosFrameSize)];
+        }
+
+        if (isStop == true) return;
+
+        float deltaTime = Time.deltaTime;
+
+        // ‰¡ˆÚ“®“ü—ÍŒŸ’m
+        if (Input.GetKey(KeyCode.A)) currentHorizontalMoveVal -= deltaTime * horiSpeed;
+        if (Input.GetKey(KeyCode.D)) currentHorizontalMoveVal += deltaTime * horiSpeed;
+        currentHorizontalMoveVal = Mathf.Min(currentHorizontalMoveVal, CanMoveHorizontalVal);
+        currentHorizontalMoveVal = Mathf.Max(currentHorizontalMoveVal, -CanMoveHorizontalVal);
+        totalDeltaTime += deltaTime * vertSpeed;
+
+        Vector3 currentPos = initPos + transform.rotation * new Vector3(currentHorizontalMoveVal, 0f, totalDeltaTime);
+        myTrans.position = currentPos;
+        parentPosEachFrame[deltaFrame % SaveParentPosFrameSize] = currentPos;
+        deltaFrame++;
+    }
+
+    public IEnumerator GameEnd()
+    {
+        yield return null;
+        isStop = true;
+        StopCoroutine(loopPlayRunEffectCoroutine);
+        loopPlayRunEffectCoroutine = null;
+    }
+
     private IEnumerator LoopPlayRunEffect()
     {
         while(true)
@@ -118,5 +154,19 @@ public class PlayerMove : MonoBehaviour
         beforeFramePos = myTrans.position;
         if (delta == Vector3.zero) return;
         myTrans.rotation = Quaternion.LookRotation(delta, Vector3.up);
+    }
+
+    /// <summary>
+    /// num % divNum‚Ì’l‚ð•Ô‚·
+    /// num < 0‚ÌŽžA(divNum * x) - num < divNum‚Æ‚È‚é‚æ‚¤‚É•Ô‚·
+    /// -1 % 100 = 99, -2 % 100 = 98, -101 % 100 = 99
+    /// </summary>
+    /// <returns></returns>
+    private int GetSurplusSupportMinusValue(int num, int divNum)
+    {
+        if (num >= 0) return num % divNum;
+
+        int i = (Mathf.Abs(num) / divNum) + 1;
+        return (divNum * i - Mathf.Abs(num)) % divNum;
     }
 }
