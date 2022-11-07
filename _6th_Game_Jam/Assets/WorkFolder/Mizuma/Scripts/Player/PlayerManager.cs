@@ -19,9 +19,9 @@ public class PlayerManager : SingletonClass<PlayerManager>
         childFactory.BirthChild(1);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        playerMove.ManagedUpdate();
+        playerMove.ManagedFixedUpdate();
     }
 
     public void BirthChild(int num)
@@ -55,6 +55,7 @@ public class PlayerManager : SingletonClass<PlayerManager>
         if (isDeath == true)
         {
             Debug.Log("<color=red>Game Over !</color>");
+            GameManager.Instance.GameEnd();
         }
 
         childFactory.KillChild(afterNum);
@@ -69,5 +70,11 @@ public class PlayerManager : SingletonClass<PlayerManager>
     public void StartStop()
     {
         playerMove.isStop = true;
+    }
+
+    public void GameEnd()
+    {
+        StartCoroutine(playerMove.GameEnd());
+        // TODO: ëñçsSEí‚é~
     }
 }

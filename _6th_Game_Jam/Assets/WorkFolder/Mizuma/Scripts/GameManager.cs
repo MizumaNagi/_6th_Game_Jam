@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : SingletonClass<GameManager>
 {
+    [SerializeField] private PlayerManager playerManager;
+
     protected override void Awake()
     {
         base.Awake();
@@ -12,5 +14,10 @@ public class GameManager : SingletonClass<GameManager>
     private void Start()
     {
         Application.targetFrameRate = 60;
+    }
+
+    public void GameEnd()
+    {
+        playerManager.GameEnd();
     }
 }
