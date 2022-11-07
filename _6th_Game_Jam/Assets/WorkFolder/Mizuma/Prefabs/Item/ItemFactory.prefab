@@ -91,6 +91,8 @@ MonoBehaviour:
   - {fileID: 1000013443838794, guid: 1d369ac37f65b2847886afbde5c64d9c, type: 3}
   - {fileID: 1000012865967088, guid: 65ed9eeb6a4a32d4789f1208a944fef4, type: 3}
   - {fileID: 1000011579577586, guid: 3122fb798fb42ef4f876c7f2ab564680, type: 3}
+  castlePrefab: {fileID: 8807327599686174562, guid: e9fd70d374151cf4596c12a24c03e371, type: 3}
+  healPrefab: {fileID: 1627609739237114684, guid: 1457264d745b6d74cbb35aceee978f3d, type: 3}
   enemyParent: {fileID: 6079632899479224610}
   enemyLargeParent: {fileID: 8584346430382560143}
   healParent: {fileID: 2100210059196239339}

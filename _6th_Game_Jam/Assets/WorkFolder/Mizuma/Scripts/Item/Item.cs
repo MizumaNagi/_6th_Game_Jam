@@ -28,15 +28,21 @@ public class Item : MonoBehaviour
 
     private void PlayItemEffect(Collider other)
     {
-        if(type == ItemType.Enemy || type == ItemType.Enemy_Large)
+        if (type == ItemType.Enemy || type == ItemType.Enemy_Large)
         {
             PlayerManager.Instance.StartStop();
             StartCoroutine(DelayTakeDamage(hp));
         }
         else if(type == ItemType.Heal)
         {
-            PlayerManager.Instance.BirthChild(new GameObject[] { this.gameObject });
+            List<GameObject> childs = new List<GameObject>();
+            for(int i = 0; i < transform.childCount; i++)
+            {
+                childs.Add(transform.GetChild(i).gameObject);
+            }
+            PlayerManager.Instance.BirthChild(childs.ToArray());
             Destroy(GetComponent<BoxCollider>());
+            Destroy(gameObject, 0f);
             //UsedItem();
         }
     }
@@ -45,7 +51,7 @@ public class Item : MonoBehaviour
     {
         PlayerManager.Instance.StartMove();
         EffectManager.Instance.PlayEffect(EffectManager.EffectType.Death_Enemy, transform.position);
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     private IEnumerator DelayTakeDamage(int remHp)
