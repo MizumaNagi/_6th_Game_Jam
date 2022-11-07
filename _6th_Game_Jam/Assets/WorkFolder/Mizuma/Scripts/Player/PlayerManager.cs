@@ -44,15 +44,15 @@ public class PlayerManager : SingletonClass<PlayerManager>
         camCon.UpdateCameraView(playerData.PlayerHp);
     }
 
-    public void KillChild(int num)
+    public bool KillChild(int num)
     {
         SoundManager.Instance.PlaySE(SEName.On_Damage);
         EffectManager.Instance.PlayEffect(EffectManager.EffectType.On_Damage, new Vector3(transform.position.x, 1.4f, transform.position.z));
 
-        bool isDeath = playerData.TakeDamage(num);
+        bool isGameEnd = playerData.TakeDamage(num);
 
         int afterNum = childFactory.GetCanKillChildCnt(num);
-        if (isDeath == true)
+        if (isGameEnd == true)
         {
             Debug.Log("<color=red>Game Over !</color>");
             GameManager.Instance.GameEnd();
@@ -60,6 +60,8 @@ public class PlayerManager : SingletonClass<PlayerManager>
 
         childFactory.KillChild(afterNum);
         camCon.UpdateCameraView(playerData.PlayerHp);
+
+        return isGameEnd;
     }
 
     public void StartMove()
