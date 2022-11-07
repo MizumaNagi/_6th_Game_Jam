@@ -27,6 +27,8 @@ public class ChildFactory : MonoBehaviour
             Transform addChild = addChilds[i].transform;
             addChild.transform.SetParent(childParent);
             addChild.position = new Vector3(100000f, addChild.position.y, 0f);
+            addChild.localScale *= 1f / 0.6f;
+            addChild.rotation = Quaternion.identity;
         }
     }
 
