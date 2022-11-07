@@ -44,15 +44,17 @@ public class Item : MonoBehaviour
     private void UsedItem()
     {
         PlayerManager.Instance.StartMove();
-        // TODO: 敵死亡エフェクト
+        EffectManager.Instance.PlayEffect(EffectManager.EffectType.Death_Enemy, transform.position);
         Destroy(this.gameObject);
     }
 
     private IEnumerator DelayTakeDamage(int remHp)
     {
         Debug.Log("Damage");
-        // TODO: 敵ダメージエフェクト
-        PlayerManager.Instance.KillChild(1);
+        EffectManager.Instance.PlayEffect(EffectManager.EffectType.Take_Damage, transform.position);
+        bool isGameEnd = PlayerManager.Instance.KillChild(1);
+        if (isGameEnd == true) yield break;
+
         remHp--;
         if (remHp <= 0) UsedItem();
 
