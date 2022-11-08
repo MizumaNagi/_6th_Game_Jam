@@ -17,14 +17,14 @@ public class ItemFactory : SingletonClass<ItemFactory>
     {
         // 1ポイント回復するアイテムを(0, 0, 15)に生成する
         ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 1, new Vector3(-1, 0, 15));
-
+        
         ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 2, new Vector3(0, 0, 20));
         ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 3, new Vector3(1, 0, 25));
         ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 4, new Vector3(0, 0, 30));
-
+        
         // 1ポイントのHPを持つ敵を(0, 0, 40)に生成する
         ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 1, new Vector3(0, 0, 40));
-
+        
         // 5ポイントのHPを持つ巨大な敵を(0, 0, 45)に生成する
         ItemFactory.Instance.CreateItem(Item.ItemType.Enemy_Large, 5, new Vector3(0, 0, 45));
     }
@@ -41,6 +41,7 @@ public class ItemFactory : SingletonClass<ItemFactory>
             newItem = Instantiate(enemyPrefabArr[rnd], pos, Quaternion.Euler(targetRot)).transform;
             itemCompo = newItem.GetComponent<Item>();
             newItem.SetParent(enemyParent);
+            newItem.GetComponent<AnimationController>().OnItem();
         }
         else if(type == Item.ItemType.Enemy_Large)
         {
@@ -52,6 +53,7 @@ public class ItemFactory : SingletonClass<ItemFactory>
                 newEnemy.SetParent(newItem);
                 newEnemy.GetComponent<Item>().enabled = false;
                 newEnemy.GetComponent<BoxCollider>().enabled = false;
+                newEnemy.GetComponent<AnimationController>().OnItem();
             }
             itemCompo = newItem.GetComponent<Item>();
             newItem.transform.SetParent(enemyLargeParent);
@@ -68,6 +70,7 @@ public class ItemFactory : SingletonClass<ItemFactory>
                 int rnd = Random.Range(0, allyPrefabArr.Length);
                 Transform child = Instantiate(allyPrefabArr[rnd], pos, Quaternion.Euler(targetRot)).transform;
                 child.SetParent(newItem);
+                child.GetComponent<AnimationController>().OnItem();
             }
 
             /*
@@ -84,7 +87,7 @@ public class ItemFactory : SingletonClass<ItemFactory>
             itemCompo.type = Item.ItemType.Heal;
             */
         }
-
+        
         itemCompo.Init(effectPower);
     }
 }

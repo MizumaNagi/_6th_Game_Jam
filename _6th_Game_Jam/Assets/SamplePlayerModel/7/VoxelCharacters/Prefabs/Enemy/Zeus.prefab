@@ -417,6 +417,7 @@ GameObject:
   - component: {fileID: 95000011833174412}
   - component: {fileID: -6556781724685550331}
   - component: {fileID: 9183478907374914938}
+  - component: {fileID: 1412970133062836141}
   m_Layer: 0
   m_Name: Zeus
   m_TagString: Item
@@ -490,6 +491,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 15, z: 5}
   m_Center: {x: 0.5, y: 7.5, z: 0}
+--- !u!114 &1412970133062836141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012427598128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c1a2876af8ad749ac3e243aeb1042c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95000011833174412}
 --- !u!1 &1000012873780832
 GameObject:
   m_ObjectHideFlags: 0

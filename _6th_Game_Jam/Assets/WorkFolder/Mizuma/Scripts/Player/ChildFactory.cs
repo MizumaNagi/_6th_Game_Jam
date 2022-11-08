@@ -15,8 +15,11 @@ public class ChildFactory : MonoBehaviour
             int rnd = Random.Range(0, allyPrefabArr.Length);
 
             Transform newChild = Instantiate(allyPrefabArr[rnd]).transform;
+            if (childParent.childCount <= 0) newChild.gameObject.GetComponent<AnimationController>().OnPlayer();
+
             newChild.SetParent(childParent);
             newChild.position = new Vector3(100000f, newChild.position.y, 0f);
+
         }
     }
 
@@ -29,6 +32,7 @@ public class ChildFactory : MonoBehaviour
             addChild.position = new Vector3(100000f, addChild.position.y, 0f);
             addChild.localScale *= 1f / 0.6f;
             addChild.rotation = Quaternion.identity;
+            addChild.GetComponent<AnimationController>().OnPlayer();
         }
     }
 

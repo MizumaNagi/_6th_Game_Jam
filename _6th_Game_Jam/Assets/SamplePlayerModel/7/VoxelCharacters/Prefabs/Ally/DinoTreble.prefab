@@ -482,6 +482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000011035093572}
   - component: {fileID: 95000012461050814}
+  - component: {fileID: 7026791342247586590}
   m_Layer: 0
   m_Name: DinoTreble
   m_TagString: Item
@@ -530,6 +531,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7026791342247586590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013384889458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c1a2876af8ad749ac3e243aeb1042c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95000012461050814}
 --- !u!1 &1000013511853738
 GameObject:
   m_ObjectHideFlags: 0
