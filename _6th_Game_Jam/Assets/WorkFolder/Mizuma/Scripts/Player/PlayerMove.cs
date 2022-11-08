@@ -79,7 +79,7 @@ public class PlayerMove : MonoBehaviour
             myTrans.position = DrawBezierCurve.GetBezierPos(targetRail.GetProperty(), totalDeltaTime % 1f);
 
             // ƒJƒƒ‰Šp“x’²®
-            RotForward();
+            //RotForward();
 
             // ‰¡ˆÚ“®”½‰f
             myTrans.position += transform.rotation * new Vector3(currentHorizontalMoveVal, 0f, 0f);
