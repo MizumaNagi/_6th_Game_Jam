@@ -666,6 +666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000014207706694}
   - component: {fileID: 95000010995878036}
+  - component: {fileID: -7583494736221498252}
   m_Layer: 0
   m_Name: Alchemist
   m_TagString: Item
@@ -713,6 +714,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-7583494736221498252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013581079056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c1a2876af8ad749ac3e243aeb1042c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95000010995878036}
 --- !u!1 &1000013685326826
 GameObject:
   m_ObjectHideFlags: 0

@@ -635,6 +635,7 @@ GameObject:
   - component: {fileID: 95000011586323808}
   - component: {fileID: -7996456806494904767}
   - component: {fileID: 5146868971302582581}
+  - component: {fileID: 5592059298868266777}
   m_Layer: 0
   m_Name: Judge
   m_TagString: Item
@@ -708,6 +709,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 15, z: 5}
   m_Center: {x: 0.5, y: 7.5, z: 0}
+--- !u!114 &5592059298868266777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013435347056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c1a2876af8ad749ac3e243aeb1042c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95000011586323808}
 --- !u!1 &1000013676377784
 GameObject:
   m_ObjectHideFlags: 0

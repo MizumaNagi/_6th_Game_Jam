@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 95000011377029010}
   - component: {fileID: -6851965252755452497}
   - component: {fileID: -6917928648574215932}
+  - component: {fileID: 433393334808476418}
   m_Layer: 0
   m_Name: Nun
   m_TagString: Item
@@ -245,6 +246,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 15, z: 5}
   m_Center: {x: 0.5, y: 7.5, z: 0}
+--- !u!114 &433393334808476418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012248948448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c1a2876af8ad749ac3e243aeb1042c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95000011377029010}
 --- !u!1 &1000012274401990
 GameObject:
   m_ObjectHideFlags: 0

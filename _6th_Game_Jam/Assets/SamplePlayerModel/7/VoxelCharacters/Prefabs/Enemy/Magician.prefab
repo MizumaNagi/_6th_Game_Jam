@@ -511,6 +511,7 @@ GameObject:
   - component: {fileID: 95000013372779518}
   - component: {fileID: 7326993059724983776}
   - component: {fileID: 6459719344811237579}
+  - component: {fileID: 4248173329643040240}
   m_Layer: 0
   m_Name: Magician
   m_TagString: Item
@@ -584,6 +585,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 15, z: 5}
   m_Center: {x: 0.5, y: 7.5, z: 0}
+--- !u!114 &4248173329643040240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012699829190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c1a2876af8ad749ac3e243aeb1042c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95000013372779518}
 --- !u!1 &1000012777088794
 GameObject:
   m_ObjectHideFlags: 0
