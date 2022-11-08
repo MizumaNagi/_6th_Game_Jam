@@ -8,14 +8,12 @@ public class AnimationController : MonoBehaviour
 
     public void OnItem()
     {
-        animator.SetBool("isItem", true);
-        animator.SetBool("isPlayer", false);
+        animator.SetTrigger("isItem");
     }
 
     public void OnPlayer()
     {
-        animator.SetBool("isItem", false);
-        animator.SetBool("isPlayer", true);
+        animator.SetTrigger("isPlayer");
         animator.speed = Random.Range(0.9f, 1.1f);
     }
 }
