@@ -13,32 +13,24 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI diatanceText;
     [SerializeField] private TextMeshProUGUI maxPlayerText;
     [SerializeField] private TextMeshProUGUI GameOverscoreText;
-    private void Start()
-    {
-        OnGameStart();
-        //OnGameEnd();
-        UpdateScoreUI(9);
-        UpdateGameOverUI(5.5f,4,8);
-    }
-    void OnGameStart()
+
+    public void OnGameStart()
     {
         this.scorePanel.SetActive(true);
     }
-    void OnGameEnd()
+    public void OnGameEnd()
     {
         this.scorePanel.SetActive(false);
         this.GameOver.SetActive(true);
     }
-    void UpdateScoreUI(int score)
+    public void UpdateScoreUI(int score)
     {
         this.scoreText.text = score.ToString();
     }
-    void UpdateGameOverUI(float diatance, int maxPlayer, int score)
+    public void UpdateGameOverUI(float diatance, int maxPlayer, int score)
     {
-        this.diatanceText.text = diatance.ToString();
+        this.diatanceText.text = diatance.ToString("F1") + " m";
         this.maxPlayerText.text = maxPlayer.ToString();
-        this.GameOverscoreText.text = score.ToString();
+        this.GameOverscoreText.text = score.ToString() + " pt";
     }
 }
-
-
