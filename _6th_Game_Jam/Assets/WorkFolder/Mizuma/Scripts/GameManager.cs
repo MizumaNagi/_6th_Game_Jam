@@ -26,5 +26,6 @@ public class GameManager : SingletonClass<GameManager>
     {
         PlayerManager.Instance.GameEnd();
         SoundManager.Instance.StopSE(SEName.Running);
+        GameOver();
     }
 }
