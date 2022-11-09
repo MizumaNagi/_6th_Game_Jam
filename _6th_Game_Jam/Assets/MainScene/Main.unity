@@ -3641,10 +3641,22 @@ PrefabInstance:
     - target: {fileID: 8481342096129141509, guid: 6493a3d009ba9cb448ff3b6ed7963cb4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 318248515}
+      objectReference: {fileID: 318248520}
     - target: {fileID: 8481342096129141509, guid: 6493a3d009ba9cb448ff3b6ed7963cb4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481342096129141509, guid: 6493a3d009ba9cb448ff3b6ed7963cb4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481342096129141509, guid: 6493a3d009ba9cb448ff3b6ed7963cb4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BackTitle, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481342096129141509, guid: 6493a3d009ba9cb448ff3b6ed7963cb4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8481342096417574297, guid: 6493a3d009ba9cb448ff3b6ed7963cb4, type: 3}
       propertyPath: m_IsActive

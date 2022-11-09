@@ -5,17 +5,8 @@ using UnityEngine.SceneManagement;
 public class BackTitle : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    public void ButtonClick()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            SceneManager.LoadScene("TitleScene");
-        }
+        SceneManager.LoadScene("TitleScene");
     }
 }
