@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : SingletonClass<GameManager>
 {
-    GameObject gameOver;
     private int score = 0;
     [SerializeField] private UIManager uiManager;
 
@@ -22,13 +21,13 @@ public class GameManager : SingletonClass<GameManager>
     private void Update()
     {
         score += PlayerManager.Instance.GetScoreEachFrame();
-        uiManager.UpdateScoreUI(1);
+        uiManager.UpdateScoreUI(score);
     }
 
     public void GameOver()
     {
         uiManager.OnGameEnd();
-        uiManager.UpdateGameOverUI(1234.5f, 30, 83991);
+        uiManager.UpdateGameOverUI(PlayerManager.Instance.GetDistance(), PlayerManager.Instance.GetMaxPlayerLength(), score);
     }
 
     public void GameEnd()
