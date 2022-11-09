@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameManager : SingletonClass<GameManager>
 {
-    GameObject gameOver;
+    [SerializeField] private UIManager uiManager;
+
     protected override void Awake()
     {
         base.Awake();
@@ -13,13 +14,18 @@ public class GameManager : SingletonClass<GameManager>
     private void Start()
     {
         Application.targetFrameRate = 60;
-        this.gameOver = GameObject.Find("GameOverText");
-        this.gameOver.SetActive(false);
+        uiManager.OnGameStart();
     }
+
+    private void Update()
+    {
+        uiManager.UpdateScoreUI(1);
+    }
+
     public void GameOver()
     {
-        // GameOverテキストの表示
-        this.gameOver.SetActive(true);
+        uiManager.OnGameEnd();
+        uiManager.UpdateGameOverUI(1234.5f, 30, 83991);
     }
 
     public void GameEnd()
