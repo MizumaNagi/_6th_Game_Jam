@@ -8,27 +8,22 @@ using UnityEngine;
 public class AreaTriggerController : MonoBehaviour
 {
     [SerializeField] private BoxCollider frontTrigger;
-    [SerializeField] private BoxCollider backTrigger;
-    [SerializeField] private RailinfoBetweenArea railInfo;
 
     private const float AutoEnableTriggerTime = 5f;
 
-    public RailinfoBetweenArea OnTrigger()
+    public void OnTrigger()
     {
         DisableTrigger();
-        return railInfo;
     }
 
     private void EnableTrigger()
     {
         frontTrigger.enabled = true;
-        backTrigger.enabled = true;
     }
 
     private void DisableTrigger()
     {
         frontTrigger.enabled = false;
-        backTrigger.enabled = false;
         StartCoroutine(AutoEnableTrigger());
     }
 
