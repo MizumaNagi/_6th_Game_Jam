@@ -8,6 +8,8 @@ public class ChildFactory : MonoBehaviour
     [SerializeField] private GameObject childPrefab;
     [SerializeField] private GameObject[] allyPrefabArr;
 
+    private const int LimitChildCnt = 100;
+
     public void BirthChild(int num)
     {
         for(int i = 0; i < num; i++)
@@ -48,5 +50,12 @@ public class ChildFactory : MonoBehaviour
     {
         if (childParent.childCount < num) return childParent.childCount;
         else return num;
+    }
+
+    public int GetCanNotBirthChildCnt(int num) // num: 4
+    {
+        int remSpace = LimitChildCnt - childParent.childCount; // rem: 2
+        if (num > remSpace) return num - remSpace;
+        else return 0;
     }
 }
