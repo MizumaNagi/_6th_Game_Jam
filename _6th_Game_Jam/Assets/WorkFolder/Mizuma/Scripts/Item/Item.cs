@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
     public ItemType type;
 
-    private const float delayEachDamage = 12f / 60f;
+    public TextMeshProUGUI powerText;
 
+    private const float delayEachDamage = 12f / 60f;
     private int healPoint;
     private int hp;
 
     public void Init(int effectPower)
     {
-
         if(type == ItemType.Enemy || type == ItemType.Enemy_Large)
         {
+            UpdateUGUI(effectPower);
             healPoint = 0;
             hp = effectPower;
         }
@@ -63,6 +65,7 @@ public class Item : MonoBehaviour
         remHp--;
         if (remHp <= 0) UsedItem();
 
+        UpdateUGUI(remHp);
         yield return new WaitForSeconds(delayEachDamage);
         StartCoroutine(DelayTakeDamage(remHp));
     }
@@ -73,6 +76,11 @@ public class Item : MonoBehaviour
         {
             PlayItemEffect(other);
         }
+    }
+
+    private void UpdateUGUI(int power)
+    {
+        powerText.text = power.ToString();
     }
 
     public enum ItemType

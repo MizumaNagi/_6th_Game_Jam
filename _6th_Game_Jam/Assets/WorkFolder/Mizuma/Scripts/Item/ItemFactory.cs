@@ -23,8 +23,9 @@ public class ItemFactory : SingletonClass<ItemFactory>
         ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 4, new Vector3(0, 0, 30));
         
         // 1ポイントのHPを持つ敵を(0, 0, 40)に生成する
-        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 1, new Vector3(0, 0, 40));
-        
+        for(int i = 0; i < 30; i++) ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 1, new Vector3(0, 0, 40 + i * 3));
+
+
         // 5ポイントのHPを持つ巨大な敵を(0, 0, 45)に生成する
         ItemFactory.Instance.CreateItem(Item.ItemType.Enemy_Large, 5, new Vector3(0, 0, 45));
     }
@@ -51,7 +52,9 @@ public class ItemFactory : SingletonClass<ItemFactory>
                 int rnd = Random.Range(0, enemyPrefabArr.Length);
                 Transform newEnemy = Instantiate(enemyPrefabArr[rnd], newItem.GetChild(i).position, newItem.GetChild(i).rotation).transform;
                 newEnemy.SetParent(newItem);
-                newEnemy.GetComponent<Item>().enabled = false;
+                Item item = newEnemy.GetComponent<Item>();
+                item.powerText.enabled = false;
+                item.enabled = false;
                 newEnemy.GetComponent<BoxCollider>().enabled = false;
                 newEnemy.GetComponent<AnimationController>().OnItem();
             }
