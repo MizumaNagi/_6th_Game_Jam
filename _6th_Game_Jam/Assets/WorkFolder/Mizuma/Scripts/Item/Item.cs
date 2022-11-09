@@ -56,7 +56,6 @@ public class Item : MonoBehaviour
 
     private IEnumerator DelayTakeDamage(int remHp)
     {
-        Debug.Log("Damage");
         EffectManager.Instance.PlayEffect(EffectManager.EffectType.Take_Damage, transform.position);
         bool isGameEnd = PlayerManager.Instance.KillChild(1);
         if (isGameEnd == true) yield break;

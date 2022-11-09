@@ -17,7 +17,7 @@ public class PlayerMove : MonoBehaviour
     private const bool useBezierMove = false;
     private const int SaveParentPosFrameSize = 1000;
     private const int DelayFrameEachChild = 5;
-    private const float AcceleEachFrame = 0.004f;
+    private const float AcceleEachFrame = 0.002f;
 
     private float vertSpeed;
     private float currentHorizontalMoveVal;
@@ -102,12 +102,16 @@ public class PlayerMove : MonoBehaviour
             childMoveCorutineList.Add(StartCoroutine(DelayMove(childParent.GetChild(i), curFramePos, myTrans.rotation, 0.1f * i)));
         }
     }
-
+    
     public void ManagedFixedUpdate()
     {
+        float firstChildPosZ = transform.position.z;
         for (int i = 0; i < childParent.childCount; i++)
         {
-            childParent.GetChild(i).position = parentPosEachFrame[GetSurplusSupportMinusValue(deltaFrame - (i + 1) * DelayFrameEachChild, SaveParentPosFrameSize)];
+            Transform target = childParent.GetChild(i);
+            target.position = parentPosEachFrame[GetSurplusSupportMinusValue(deltaFrame - (i + 1) * DelayFrameEachChild, SaveParentPosFrameSize)];
+            Vector3 tmp = target.position;
+            target.position = new Vector3(tmp.x, tmp.y, firstChildPosZ - 0.5f * i);
         }
 
         if (isStop == true) return;

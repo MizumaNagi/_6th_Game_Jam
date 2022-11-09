@@ -27,6 +27,8 @@ public class ItemFactory : SingletonClass<ItemFactory>
         
         // 5ƒ|ƒCƒ“ƒg‚ÌHP‚ğ‚Â‹‘å‚È“G‚ğ(0, 0, 45)‚É¶¬‚·‚é
         ItemFactory.Instance.CreateItem(Item.ItemType.Enemy_Large, 5, new Vector3(0, 0, 45));
+        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy_Large, 5, new Vector3(0, 0, 55));
+        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy_Large, 5, new Vector3(0, 0, 65));
     }
 
     public void CreateItem(Item.ItemType type, int effectPower, Vector3 pos, Vector3? rot = null)

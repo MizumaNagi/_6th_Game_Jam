@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     private Camera myCamera;
     private float initFOV;
     private Vector3 initPos;
-    private Vector2 LeaveVecEachCharacter { get { return new Vector2(-0.45f, 0.25f); } }
+    private Vector2 LeaveVecEachCharacter { get { return new Vector2(-0.57f, 0.25f); } }
 
     public void ManagedStart()
     {
