@@ -78,4 +78,19 @@ public class PlayerManager : SingletonClass<PlayerManager>
     {
         StartCoroutine(playerMove.GameEnd());
     }
+
+    public int GetMaxPlayerLength()
+    {
+        return playerData.MaxPlayerHp;
+    }
+
+    public float GetDistance()
+    {
+        return playerMove.Distance;
+    }
+
+    public int GetScoreEachFrame()
+    {
+        return Mathf.CeilToInt(playerData.PlayerHp * playerMove.VertSpeed);
+    }
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField, Range(0f, 20f)] private float vertSpeed;
+    [SerializeField] private float vertSpeed;
     [SerializeField, Range(0f, 5f)] private float horiSpeed;
     [SerializeField] private RailinfoBetweenArea[] railArr;
     [SerializeField] private Transform player;
@@ -28,6 +28,9 @@ public class PlayerMove : MonoBehaviour
     private List<Coroutine> childMoveCorutineList = new List<Coroutine>();
 
     private Vector3 initPos;
+
+    public float Distance => totalDeltaTime;
+    public float VertSpeed => vertSpeed;
 
     public bool isStop = false;
 
