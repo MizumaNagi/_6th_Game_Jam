@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private float vertSpeed;
+    [SerializeField] private float initVertSpeed;
     [SerializeField, Range(0f, 5f)] private float horiSpeed;
     [SerializeField] private RailinfoBetweenArea[] railArr;
     [SerializeField] private Transform player;
@@ -17,7 +17,9 @@ public class PlayerMove : MonoBehaviour
     private const bool useBezierMove = false;
     private const int SaveParentPosFrameSize = 1000;
     private const int DelayFrameEachChild = 5;
+    private const float AcceleEachFrame = 0.004f;
 
+    private float vertSpeed;
     private float currentHorizontalMoveVal;
     private Transform myTrans;
     private Vector3 beforeFramePos;
@@ -40,6 +42,7 @@ public class PlayerMove : MonoBehaviour
         beforeFramePos = myTrans.position;
         loopPlayRunEffectCoroutine = StartCoroutine(LoopPlayRunEffect());
         initPos = myTrans.position;
+        vertSpeed = initVertSpeed;
     }
 
     public void ManagedUpdate()
@@ -110,6 +113,7 @@ public class PlayerMove : MonoBehaviour
         if (isStop == true) return;
 
         float deltaTime = Time.deltaTime;
+        vertSpeed += AcceleEachFrame;
 
         // ‰¡ˆÚ“®“ü—ÍŒŸ’m
         if (Input.GetKey(KeyCode.A)) currentHorizontalMoveVal -= deltaTime * horiSpeed;

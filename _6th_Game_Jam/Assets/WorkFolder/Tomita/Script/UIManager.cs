@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     public void OnGameStart()
     {
         this.scorePanel.SetActive(true);
+        this.GameOver.SetActive(false);
     }
     public void OnGameEnd()
     {
