@@ -47,11 +47,8 @@ public class SoundManager : SingletonClass<SoundManager>
         SoundOption mainBGMOp = new SoundOption();
         mainBGMOp.pitch = 0.75f;
         mainBGMOp.playSecond = 10f;
+        mainBGMOp.isLoop = 1;
         PlayBGM(BGMName.Main, mainBGMOp);
-
-        SoundOption runSEOp = new SoundOption();
-        runSEOp.isLoop = 1;
-        PlaySE(SEName.Running, runSEOp);
     }
 
     /// <summary>

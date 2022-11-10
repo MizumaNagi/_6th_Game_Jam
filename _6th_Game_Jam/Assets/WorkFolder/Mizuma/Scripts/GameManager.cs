@@ -16,6 +16,10 @@ public class GameManager : SingletonClass<GameManager>
     {
         Application.targetFrameRate = 60;
         uiManager.OnGameStart();
+
+        SoundOption runSeOP = new SoundOption();
+        runSeOP.isLoop = 1;
+        SoundManager.Instance.PlaySE(SEName.Running, runSeOP);
     }
 
     private void Update()

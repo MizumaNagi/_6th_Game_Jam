@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb31f71915493a9499f646db20d5feda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canLiveSceneOver: 1
-  playerManager: {fileID: 0}
+  canLiveSceneOver: 0
+  uiManager: {fileID: 0}
