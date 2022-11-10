@@ -273,15 +273,50 @@ public class MapController : MonoBehaviour
         float numItemScale = ((int)targetDiff + 1) * 0.2f;
         int enableItemNum = Mathf.RoundToInt(itemIndexList.Count * numItemScale);
         int healItemNum = Mathf.RoundToInt((enableItemNum / 2));
+        int enemyItemNum = enableItemNum - healItemNum;
 
         // プレイヤーHP, 難易度に応じたアイテム効力の補正
+        int totalEffectPow = 1 + (itemDropMapIndex / 8);
+
+        int[] enemyPowArr = new int[enemyItemNum];
+        int[] enemyPowWeight = new int[enemyItemNum];
+        int totalEnemyWeight = 0;
+        for (int i = 0; i < enemyItemNum; i++)
+        {
+            enemyPowWeight[i] = Random.Range(1, 5);
+            totalEnemyWeight += enemyPowWeight[i];
+        }
+        for(int i = 0; i< enemyItemNum; i++)
+        {
+            enemyPowArr[i] = Mathf.CeilToInt((float)totalEffectPow * enemyPowWeight[i] / totalEnemyWeight);
+        }
+
+        int[] healPowArr = new int[healItemNum];
+        int[] healPowWeight = new int[healItemNum];
+        int totalHealWeight = 0;
+        for(int i = 0; i < healItemNum; i++)
+        {
+            healPowWeight[i] = Random.Range(3, 5);
+            totalHealWeight = healPowWeight[i];
+        }
+        for(int i = 0; i < healItemNum; i++)
+        {
+            healPowArr[i] = Mathf.CeilToInt((float)totalEffectPow * healPowWeight[i] / totalHealWeight);
+            healPowArr[i] = Mathf.Min(healPowArr[i], 4);
+        }
 
         // アイテム生成
-        for(int i = 0; i < enableItemNum; i++)
+        for(int i = 0; i < enemyItemNum; i++)
         {
             int rnd = Random.Range(0, itemIndexList.Count);
-            Item.ItemType type = i < healItemNum ? Item.ItemType.Heal : Item.ItemType.Enemy;
-            SendItemGenerator(itemIndexList[rnd].Item1, itemIndexList[rnd].Item2, itemDropMapIndex, type, 1);
+            SendItemGenerator(itemIndexList[rnd].Item1, itemIndexList[rnd].Item2, itemDropMapIndex, Item.ItemType.Enemy, enemyPowArr[i]);
+            itemIndexList.RemoveAt(rnd);
+        }
+
+        for(int i = 0; i < healItemNum; i++)
+        {
+            int rnd = Random.Range(0, itemIndexList.Count);
+            SendItemGenerator(itemIndexList[rnd].Item1, itemIndexList[rnd].Item2, itemDropMapIndex, Item.ItemType.Heal, healPowArr[i]);
             itemIndexList.RemoveAt(rnd);
         }
     }
