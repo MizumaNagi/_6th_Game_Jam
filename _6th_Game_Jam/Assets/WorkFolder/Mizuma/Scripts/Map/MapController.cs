@@ -237,7 +237,7 @@ public class MapController : MonoBehaviour
         // Ô‹y‚Ñ‹ó”’ƒGƒŠƒA‚Ì¶¬
         if (itemDropMapIndex % CastleMapInterval == 0)
         {
-            SendItemGenerator(1, 0, itemDropMapIndex, Item.ItemType.Enemy_Large, 1);
+            SendItemGenerator(1, 0, itemDropMapIndex, Item.ItemType.Enemy_Large, itemDropMapIndex / CastleMapInterval);
             return;
         }
 
