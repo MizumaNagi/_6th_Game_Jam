@@ -28,6 +28,7 @@ public class PlayerMove : MonoBehaviour
     private int deltaFrame = 0;
     private Coroutine loopPlayRunEffectCoroutine = null;
     private List<Coroutine> childMoveCorutineList = new List<Coroutine>();
+    private bool isTutorial = false;
 
     private Vector3 initPos;
 
@@ -117,7 +118,6 @@ public class PlayerMove : MonoBehaviour
         if (isStop == true) return;
 
         float deltaTime = Time.deltaTime;
-        vertSpeed += AcceleEachFrame;
 
         // ‰¡ˆÚ“®“ü—ÍŒŸ’m
         if (Input.GetKey(KeyCode.A)) currentHorizontalMoveVal -= deltaTime * horiSpeed;
@@ -130,6 +130,8 @@ public class PlayerMove : MonoBehaviour
         myTrans.position = currentPos;
         parentPosEachFrame[deltaFrame % SaveParentPosFrameSize] = currentPos;
         deltaFrame++;
+
+        if(isTutorial == false) vertSpeed += AcceleEachFrame;
     }
 
     public IEnumerator GameEnd()
@@ -138,6 +140,11 @@ public class PlayerMove : MonoBehaviour
         isStop = true;
         StopCoroutine(loopPlayRunEffectCoroutine);
         loopPlayRunEffectCoroutine = null;
+    }
+
+    public void TutorialEnd()
+    {
+        isTutorial = false;
     }
 
     private IEnumerator LoopPlayRunEffect()
