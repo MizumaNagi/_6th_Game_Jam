@@ -109,9 +109,9 @@ public class PlayerMove : MonoBehaviour
         for (int i = 0; i < childParent.childCount; i++)
         {
             Transform target = childParent.GetChild(i);
-            target.position = parentPosEachFrame[GetSurplusSupportMinusValue(deltaFrame - (i + 1) * DelayFrameEachChild, SaveParentPosFrameSize)];
-            Vector3 tmp = target.position;
-            target.position = new Vector3(tmp.x, tmp.y, firstChildPosZ - 0.5f * i);
+            target.position = parentPosEachFrame[GetSurplusSupportMinusValue(deltaFrame - Mathf.RoundToInt((float)(i + 1) * DelayFrameEachChild * (initVertSpeed / vertSpeed)), SaveParentPosFrameSize)];
+            //Vector3 tmp = target.position;
+            //target.position = new Vector3(tmp.x, tmp.y, firstChildPosZ - 0.5f * i);
         }
 
         if (isStop == true) return;
