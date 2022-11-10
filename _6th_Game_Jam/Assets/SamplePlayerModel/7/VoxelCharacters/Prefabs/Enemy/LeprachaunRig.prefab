@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 2164255999904907234}
   - component: {fileID: -3099826190539199453}
   - component: {fileID: -5732801858028728052}
+  - component: {fileID: 1647675398012446712}
   m_Layer: 0
   m_Name: LeprachaunRig
   m_TagString: Item
@@ -421,6 +422,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   powerText: {fileID: 7028972598013587443}
+  rb: {fileID: 1647675398012446712}
+  collider: {fileID: -3099826190539199453}
 --- !u!65 &-3099826190539199453
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -447,6 +450,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 95000013829211466}
+--- !u!54 &1647675398012446712
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011835032326}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1000012198225460
 GameObject:
   m_ObjectHideFlags: 0
