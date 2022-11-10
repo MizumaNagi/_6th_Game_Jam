@@ -30,7 +30,7 @@ public class ItemFactory : SingletonClass<ItemFactory>
         //ItemFactory.Instance.CreateItem(Item.ItemType.Enemy_Large, 5, new Vector3(0, 0, 45));
     }
 
-    public void CreateItem(Item.ItemType type, int effectPower, Vector3 pos, Vector3? rot = null)
+    public GameObject CreateItem(Item.ItemType type, int effectPower, Vector3 pos, Vector3? rot = null)
     {
         Vector3 targetRot = rot ?? new Vector3(0f, 180f, 0f);
         Transform newItem = null;
@@ -92,5 +92,7 @@ public class ItemFactory : SingletonClass<ItemFactory>
         }
         
         itemCompo.Init(effectPower);
+
+        return newItem.gameObject;
     }
 }

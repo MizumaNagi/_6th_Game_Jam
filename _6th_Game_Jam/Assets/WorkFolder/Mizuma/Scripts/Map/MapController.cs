@@ -8,12 +8,14 @@ public class MapController : MonoBehaviour
 
     private const int EmptyMapInterval = 10;
     private const int InitGenerateItemGroup = 15;
+    private const int DestroyItemMapBlocks = 5;
 
     private int deltaFrame = 750;
     private int initMapsLen = 0;
     private int nextMapIndex = 0;
     private int itemDropMapIndex = 6;
     private int remNonMoveCnt = 0;
+    private int currentPlayerPosIndex = 0;
 
     private readonly int[,,] mapData = new int[,,]
     {
@@ -179,6 +181,8 @@ public class MapController : MonoBehaviour
         },
     };
 
+    private List<GameObject> mapIndexOfItemObjectList = new List<GameObject>();
+    private List<int> mapIndexOfItemIndexList = new List<int>();
 
     private void Start()
     {
@@ -186,6 +190,7 @@ public class MapController : MonoBehaviour
         nextMapIndex = initMapsLen;
         remNonMoveCnt = initMapsLen / 2;
         InitItemGenerate();
+        StartCoroutine(CheckUselessItem());
     }
 
     private void Update()
@@ -195,6 +200,7 @@ public class MapController : MonoBehaviour
 
     public IEnumerator DelayMoveMap()
     {
+        currentPlayerPosIndex++;
         if(remNonMoveCnt > 0)
         {
             remNonMoveCnt--;
@@ -254,7 +260,27 @@ public class MapController : MonoBehaviour
     private void SendItemGenerator(int x, int y, int map, Item.ItemType type)
     {
         Vector3 createPos = new Vector3(-1f + x, 0f, map * 6f + 0.8f * (3 - y));
-        ItemFactory.Instance.CreateItem(type, 1, createPos);
+        GameObject newItem = ItemFactory.Instance.CreateItem(type, 1, createPos);
+        mapIndexOfItemObjectList.Add(newItem);
+        mapIndexOfItemIndexList.Add(map);
+    }
+
+    private IEnumerator CheckUselessItem()
+    {
+        while (true)
+        {
+            for(int i = 0; i < mapIndexOfItemIndexList.Count; i++)
+            {
+                if(currentPlayerPosIndex > mapIndexOfItemIndexList[i] + DestroyItemMapBlocks)
+                {
+                    GameObject killItem = mapIndexOfItemObjectList[i];
+                    mapIndexOfItemObjectList.RemoveAt(i);
+                    mapIndexOfItemIndexList.RemoveAt(i);
+                    Destroy(killItem);
+                }
+            }
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     private enum ItemSpawnDiff
