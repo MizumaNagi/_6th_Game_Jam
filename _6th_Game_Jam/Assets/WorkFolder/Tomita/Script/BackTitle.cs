@@ -7,6 +7,12 @@ public class BackTitle : MonoBehaviour
     // Start is called before the first frame update
     public void ButtonClick()
     {
-        SceneManager.LoadScene("TitleScene");
+        Destroy(SoundManager.Instance.gameObject);
+        SceneManager.LoadScene("Title");
+    }
+
+    public void RetryClick()
+    {
+        SceneManager.LoadScene("Main");
     }
 }
