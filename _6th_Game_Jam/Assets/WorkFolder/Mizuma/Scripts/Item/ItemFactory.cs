@@ -15,19 +15,19 @@ public class ItemFactory : SingletonClass<ItemFactory>
 
     private void Start()
     {
-        // 1ポイント回復するアイテムを(0, 0, 15)に生成する
-        ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 1, new Vector3(-1, 0, 15));
-        
-        ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 2, new Vector3(0, 0, 20));
-        ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 3, new Vector3(1, 0, 25));
-        ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 4, new Vector3(0, 0, 30));
-        
-        // 1ポイントのHPを持つ敵を(0, 0, 40)に生成する
-        for(int i = 0; i < 30; i++) ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 1, new Vector3(0, 0, 40 + i * 3));
-
-
-        // 5ポイントのHPを持つ巨大な敵を(0, 0, 45)に生成する
-        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy_Large, 5, new Vector3(0, 0, 45));
+        //// 1ポイント回復するアイテムを(0, 0, 15)に生成する
+        //ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 1, new Vector3(-1, 0, 15));
+        //
+        //ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 2, new Vector3(0, 0, 20));
+        //ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 3, new Vector3(1, 0, 25));
+        //ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 4, new Vector3(0, 0, 30));
+        //
+        //// 1ポイントのHPを持つ敵を(0, 0, 40)に生成する
+        //ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 1, new Vector3(0, 0, 40));
+        //
+        //
+        //// 5ポイントのHPを持つ巨大な敵を(0, 0, 45)に生成する
+        //ItemFactory.Instance.CreateItem(Item.ItemType.Enemy_Large, 5, new Vector3(0, 0, 45));
     }
 
     public void CreateItem(Item.ItemType type, int effectPower, Vector3 pos, Vector3? rot = null)
