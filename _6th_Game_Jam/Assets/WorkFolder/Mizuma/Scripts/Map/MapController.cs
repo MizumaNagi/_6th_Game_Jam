@@ -7,11 +7,12 @@ public class MapController : MonoBehaviour
     [SerializeField] private Transform[] initMaps;
 
     private const int EmptyMapInterval = 10;
+    private const int InitGenerateItemGroup = 15;
 
     private int deltaFrame = 750;
     private int initMapsLen = 0;
     private int nextMapIndex = 0;
-    private int itemDropMapIndex = 5;
+    private int itemDropMapIndex = 6;
     private int remNonMoveCnt = 0;
 
     private readonly int[,,] mapData = new int[,,]
@@ -185,7 +186,6 @@ public class MapController : MonoBehaviour
         nextMapIndex = initMapsLen;
         remNonMoveCnt = initMapsLen / 2;
         InitItemGenerate();
-        Debug.Log("!");
     }
 
     private void Update()
@@ -210,8 +210,7 @@ public class MapController : MonoBehaviour
 
     public void InitItemGenerate()
     {
-        int tmp = itemDropMapIndex;
-        for(int i = 0; i < 20; i++)
+        for(int i = 0; i < InitGenerateItemGroup; i++)
         {
             GenerateItemGroup();
         }
@@ -223,6 +222,7 @@ public class MapController : MonoBehaviour
 
         if (itemDropMapIndex % EmptyMapInterval == 0)
         {
+            SendItemGenerator(1, 0, itemDropMapIndex, Item.ItemType.Enemy_Large);
             return;
         }
 
