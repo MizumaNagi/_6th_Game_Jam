@@ -11,7 +11,7 @@ public class MapController : MonoBehaviour
     private const int InitEmptyMapBlock = 7;
     private const int DestroyItemMapBlocks = 5;
 
-    private int deltaFrame = 750;
+    private int difficulty = 500;
     private int initMapsLen = 0;
     private int nextMapIndex = 0;
     private int itemDropMapIndex = 0;
@@ -197,7 +197,7 @@ public class MapController : MonoBehaviour
 
     private void Update()
     {
-        deltaFrame++;
+        difficulty++;
     }
 
     public IEnumerator DelayMoveMap()
@@ -234,9 +234,10 @@ public class MapController : MonoBehaviour
     {
         itemDropMapIndex++;
 
+        // 砦及び空白エリアの生成
         if (itemDropMapIndex % CastleMapInterval == 0)
         {
-            SendItemGenerator(1, 0, itemDropMapIndex, Item.ItemType.Enemy_Large);
+            SendItemGenerator(1, 0, itemDropMapIndex, Item.ItemType.Enemy_Large, 1);
             return;
         }
 
@@ -245,13 +246,17 @@ public class MapController : MonoBehaviour
             return;
         }
 
-        float min = (deltaFrame - 1500) * 0.002f;
+        // 難易度指定
+        float min = (difficulty - 1500) * 0.002f;
         min = Mathf.Max(0f, min);
-        min = Mathf.Min(3f, min);
-        float max = deltaFrame * 0.002f;
-        max = Mathf.Min(3f, max);
+        min = Mathf.Min(5f, min);
+        float max = difficulty * 0.002f;
+        max = Mathf.Min(5f, max);
         ItemSpawnDiff targetDiff = (ItemSpawnDiff)Random.Range(min, max);
+        targetDiff = ItemSpawnDiff.Easy;
 
+        // アイテム座標チェック
+        List<(int, int)> itemIndexList = new List<(int, int)>();
         int rndItemTable = Random.Range(0, 20);
         for(int x = 0; x < 3; x++)
         {
@@ -259,16 +264,32 @@ public class MapController : MonoBehaviour
             {
                 if (mapData[rndItemTable, y, x] == 1)
                 {
-                    SendItemGenerator(x, y, itemDropMapIndex, Item.ItemType.Enemy);
+                    itemIndexList.Add((x, y));
                 }
             }
         }
+
+        // 難易度によるアイテム数補正
+        float numItemScale = ((int)targetDiff + 1) * 0.2f;
+        int enableItemNum = Mathf.RoundToInt(itemIndexList.Count * numItemScale);
+        int healItemNum = Mathf.RoundToInt((enableItemNum / 2));
+
+        // プレイヤーHP, 難易度に応じたアイテム効力の補正
+
+        // アイテム生成
+        for(int i = 0; i < enableItemNum; i++)
+        {
+            int rnd = Random.Range(0, itemIndexList.Count);
+            Item.ItemType type = i < healItemNum ? Item.ItemType.Heal : Item.ItemType.Enemy;
+            SendItemGenerator(itemIndexList[rnd].Item1, itemIndexList[rnd].Item2, itemDropMapIndex, type, 1);
+            itemIndexList.RemoveAt(rnd);
+        }
     }
 
-    private void SendItemGenerator(int x, int y, int map, Item.ItemType type)
+    private void SendItemGenerator(int x, int y, int map, Item.ItemType type, int effectPower)
     {
         Vector3 createPos = new Vector3(-1f + x, 0f, map * 6f + 0.8f * (3 - y));
-        GameObject newItem = ItemFactory.Instance.CreateItem(type, 1, createPos);
+        GameObject newItem = ItemFactory.Instance.CreateItem(type, effectPower, createPos);
         mapIndexOfItemObjectList.Add(newItem);
         mapIndexOfItemIndexList.Add(map);
     }
@@ -293,8 +314,10 @@ public class MapController : MonoBehaviour
 
     private enum ItemSpawnDiff
     {
+        VeryEasy,
         Easy,
         Normal,
-        Hard
+        Hard,
+        VeryHard
     }
 }
