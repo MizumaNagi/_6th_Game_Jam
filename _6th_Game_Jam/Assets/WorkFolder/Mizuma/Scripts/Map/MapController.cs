@@ -6,14 +6,15 @@ public class MapController : MonoBehaviour
 {
     [SerializeField] private Transform[] initMaps;
 
-    private const int EmptyMapInterval = 10;
+    private const int CastleMapInterval = 10;
     private const int InitGenerateItemGroup = 15;
+    private const int InitEmptyMapBlock = 7;
     private const int DestroyItemMapBlocks = 5;
 
     private int deltaFrame = 750;
     private int initMapsLen = 0;
     private int nextMapIndex = 0;
-    private int itemDropMapIndex = 6;
+    private int itemDropMapIndex = 0;
     private int remNonMoveCnt = 0;
     private int currentPlayerPosIndex = 0;
 
@@ -187,6 +188,7 @@ public class MapController : MonoBehaviour
     private void Start()
     {
         initMapsLen = initMaps.Length;
+        itemDropMapIndex = InitEmptyMapBlock;
         nextMapIndex = initMapsLen;
         remNonMoveCnt = initMapsLen / 2;
         InitItemGenerate();
@@ -200,7 +202,6 @@ public class MapController : MonoBehaviour
 
     public IEnumerator DelayMoveMap()
     {
-        currentPlayerPosIndex++;
         if(remNonMoveCnt > 0)
         {
             remNonMoveCnt--;
@@ -212,6 +213,13 @@ public class MapController : MonoBehaviour
 
         t.position = new Vector3(0f, 0f, 6f * nextMapIndex);
         nextMapIndex++;
+    }
+
+    public IEnumerator DelayCreateItem()
+    {
+        currentPlayerPosIndex++;
+        if (InitEmptyMapBlock < currentPlayerPosIndex) GenerateItemGroup();
+        yield return null;
     }
 
     public void InitItemGenerate()
@@ -226,13 +234,13 @@ public class MapController : MonoBehaviour
     {
         itemDropMapIndex++;
 
-        if (itemDropMapIndex % EmptyMapInterval == 0)
+        if (itemDropMapIndex % CastleMapInterval == 0)
         {
             SendItemGenerator(1, 0, itemDropMapIndex, Item.ItemType.Enemy_Large);
             return;
         }
 
-        if (itemDropMapIndex % EmptyMapInterval == 1)
+        if (itemDropMapIndex % CastleMapInterval == 1)
         {
             return;
         }

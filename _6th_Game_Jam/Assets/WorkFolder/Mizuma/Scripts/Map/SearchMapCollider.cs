@@ -11,6 +11,7 @@ public class SearchMapCollider : MonoBehaviour
         if(other.CompareTag("Rail") == true)
         {
             StartCoroutine(mapCon.DelayMoveMap());
+            StartCoroutine(mapCon.DelayCreateItem());
         }
     }
 }
