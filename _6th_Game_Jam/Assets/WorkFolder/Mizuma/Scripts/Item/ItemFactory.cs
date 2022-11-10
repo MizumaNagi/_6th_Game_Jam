@@ -56,6 +56,7 @@ public class ItemFactory : SingletonClass<ItemFactory>
                 item.powerText.enabled = false;
                 item.enabled = false;
                 newEnemy.GetComponent<BoxCollider>().enabled = false;
+                Destroy(newEnemy.GetComponent<Rigidbody>());
                 newEnemy.GetComponent<AnimationController>().OnItem();
             }
             itemCompo = newItem.GetComponent<Item>();

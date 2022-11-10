@@ -8,6 +8,8 @@ public class Item : MonoBehaviour
     public ItemType type;
 
     public TextMeshProUGUI powerText;
+    public Rigidbody rb;
+    public BoxCollider collider;
 
     private const float delayEachDamage = 12f / 60f;
     private int healPoint;
@@ -53,7 +55,11 @@ public class Item : MonoBehaviour
     {
         PlayerManager.Instance.StartMove();
         EffectManager.Instance.PlayEffect(EffectManager.EffectType.Death_Enemy, transform.position);
-        Destroy(gameObject);
+        Destroy(gameObject, 3f);
+        collider.enabled = false;
+        rb.isKinematic = false;
+        rb.AddForce(new Vector3(Random.Range(0.8f, 1.2f), 1f, Random.Range(0.8f, 1.2f)) * 1000f);
+        rb.AddTorque(new Vector3(Random.Range(10f, 100f), Random.Range(10f, 100f), Random.Range(10f, 100f)), ForceMode.VelocityChange);
     }
 
     private IEnumerator DelayTakeDamage(int remHp)
@@ -63,7 +69,7 @@ public class Item : MonoBehaviour
         if (isGameEnd == true) yield break;
 
         remHp--;
-        if (remHp <= 0) UsedItem();
+        if (remHp <= 0) { UsedItem(); yield break; }
 
         UpdateUGUI(remHp);
         yield return new WaitForSeconds(delayEachDamage);
