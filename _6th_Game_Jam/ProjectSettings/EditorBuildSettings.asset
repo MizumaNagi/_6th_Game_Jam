@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/WorkFolder/Tomita/Scene/TitleScene.unity
-    guid: 1c06e66e7ab95ca4e85f73d12a6bbf94
+    path: Assets/MainScene/Title.unity
+    guid: 4daa60264f303e042be20d865edb2e4d
   - enabled: 1
     path: Assets/MainScene/Main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab

@@ -7,12 +7,13 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField]private GameObject scorePanel;
+    [SerializeField] private GameObject scorePanel;
     [SerializeField] private GameObject GameOver;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI diatanceText;
     [SerializeField] private TextMeshProUGUI maxPlayerText;
     [SerializeField] private TextMeshProUGUI GameOverscoreText;
+    [SerializeField] private FadeManager fadeManager;
 
     public void OnGameStart()
     {
