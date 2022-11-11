@@ -8,7 +8,7 @@ public class MapController : MonoBehaviour
 
     private const int CastleMapInterval = 10;
     private const int InitGenerateItemGroup = 15;
-    private const int InitEmptyMapBlock = 10;
+    private const int InitEmptyMapBlock = 20;
     private const int DestroyItemMapBlocks = 5;
 
     private int difficulty = 500;
@@ -310,6 +310,7 @@ public class MapController : MonoBehaviour
         {
             int rnd = Random.Range(0, itemIndexList.Count);
             SendItemGenerator(itemIndexList[rnd].Item1, itemIndexList[rnd].Item2, itemDropMapIndex, Item.ItemType.Enemy, enemyPowArr[i]);
+
             itemIndexList.RemoveAt(rnd);
         }
 
@@ -345,6 +346,12 @@ public class MapController : MonoBehaviour
             }
             yield return new WaitForSeconds(1f);
         }
+    }
+
+    public void SkipTutorial()
+    {
+        remNonMoveCnt -= 18;
+        currentPlayerPosIndex = 18;
     }
 
     private enum ItemSpawnDiff

@@ -325,7 +325,7 @@ MonoBehaviour:
   type: 3
   powerText: {fileID: 4956959118439943493}
   rb: {fileID: 2874084550320837311}
-  collider: {fileID: 1759878543777225395}
+  col: {fileID: 1759878543777225395}
 --- !u!54 &2874084550320837311
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -18,6 +18,9 @@ public class GameManager : SingletonClass<GameManager>
         Application.targetFrameRate = 60;
         uiManager.OnGameStart();
 
+        SoundManager.Instance.StopBGM(BGMName.Title);
+        SoundManager.Instance.PlayBGM(BGMName.Main);
+
         SoundOption runSeOP = new SoundOption();
         runSeOP.isLoop = 1;
         SoundManager.Instance.PlaySE(SEName.Running, runSeOP);
@@ -25,8 +28,11 @@ public class GameManager : SingletonClass<GameManager>
 
     private void Update()
     {
-        score += PlayerManager.Instance.GetScoreEachFrame();
-        uiManager.UpdateScoreUI(score);
+        if (isTutorial == false)
+        {
+            score += PlayerManager.Instance.GetScoreEachFrame();
+            uiManager.UpdateScoreUI(score);
+        }
     }
 
     public void EndTutorial()

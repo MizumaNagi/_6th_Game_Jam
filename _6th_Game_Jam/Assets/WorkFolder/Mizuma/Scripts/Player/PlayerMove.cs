@@ -142,11 +142,6 @@ public class PlayerMove : MonoBehaviour
         loopPlayRunEffectCoroutine = null;
     }
 
-    public void TutorialEnd()
-    {
-        isTutorial = false;
-    }
-
     private IEnumerator LoopPlayRunEffect()
     {
         while(true)
@@ -186,5 +181,18 @@ public class PlayerMove : MonoBehaviour
 
         int i = (Mathf.Abs(num) / divNum) + 1;
         return (divNum * i - Mathf.Abs(num)) % divNum;
+    }
+
+    public void SkipTutorial()
+    {
+        totalDeltaTime = 104f;
+        isTutorial = false;
+        GameManager.Instance.EndTutorial();
+    }
+
+    public void EndTutorial()
+    {
+        isTutorial = false;
+        GameManager.Instance.EndTutorial();
     }
 }

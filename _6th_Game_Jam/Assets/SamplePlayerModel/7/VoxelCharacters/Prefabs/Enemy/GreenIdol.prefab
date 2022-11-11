@@ -238,7 +238,7 @@ MonoBehaviour:
   type: 2
   powerText: {fileID: 2279093813324785436}
   rb: {fileID: 754332354632234212}
-  collider: {fileID: -5409870025303278086}
+  col: {fileID: -5409870025303278086}
 --- !u!65 &-5409870025303278086
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -932,8 +932,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
