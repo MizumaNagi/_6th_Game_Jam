@@ -22,7 +22,7 @@ public abstract class SingletonClass<T> : MonoBehaviour where T : MonoBehaviour
     virtual protected void Awake()
     {
         if (instance == null) instance = this as T;
-        else Destroy(this);
+        else Destroy(this.gameObject);
 
         if (canLiveSceneOver == true) DontDestroyOnLoad(this.gameObject);
     }

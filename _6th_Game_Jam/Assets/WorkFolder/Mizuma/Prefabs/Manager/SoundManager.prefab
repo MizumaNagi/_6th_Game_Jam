@@ -113,6 +113,7 @@ MonoBehaviour:
   bgmParent: {fileID: 516718381758705744}
   bgmChannelValue: 1
   bgmClips:
+  - {fileID: 8300000, guid: 1963dbb9f99bf5d43bd0f5aa941d0a9e, type: 3}
   - {fileID: 8300000, guid: 849e1fd7f3b00a54b862763d9167924a, type: 3}
   seParent: {fileID: 3458752865425897016}
   seChannelValue: 10
@@ -122,6 +123,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e4144e3e08f1cdd469ec3c568fe3fee5, type: 3}
   - {fileID: 8300000, guid: 95c5ec03dc7952247b5cac22dfdd3538, type: 3}
   - {fileID: 8300000, guid: 1d9986075d1d5b947b83de9b686800df, type: 3}
+  - {fileID: 8300000, guid: 59c61be2f7df6d64ea4d392c7c5ab9ef, type: 3}
 --- !u!81 &4255282223752377996
 AudioListener:
   m_ObjectHideFlags: 0

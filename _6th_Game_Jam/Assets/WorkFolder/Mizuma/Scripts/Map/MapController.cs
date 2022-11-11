@@ -310,6 +310,7 @@ public class MapController : MonoBehaviour
         {
             int rnd = Random.Range(0, itemIndexList.Count);
             SendItemGenerator(itemIndexList[rnd].Item1, itemIndexList[rnd].Item2, itemDropMapIndex, Item.ItemType.Enemy, enemyPowArr[i]);
+
             itemIndexList.RemoveAt(rnd);
         }
 

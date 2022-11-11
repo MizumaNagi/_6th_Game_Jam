@@ -13,7 +13,7 @@ public class PlayerData : MonoBehaviour
     public void HealHp(int num)
     {
         playerHp += num;
-        maxPlayerHp = Mathf.Max(playerHp, num);
+        maxPlayerHp = Mathf.Max(playerHp, maxPlayerHp);
     }
 
     public bool TakeDamage(int num)

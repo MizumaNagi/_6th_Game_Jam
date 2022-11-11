@@ -44,11 +44,7 @@ public class SoundManager : SingletonClass<SoundManager>
         defaultSEOption.pitch = 1f;
         defaultSEOption.playSecond = 0f;
 
-        SoundOption mainBGMOp = new SoundOption();
-        mainBGMOp.pitch = 0.75f;
-        mainBGMOp.playSecond = 10f;
-        mainBGMOp.isLoop = 1;
-        PlayBGM(BGMName.Main, mainBGMOp);
+        //PlayBGM(BGMName.Title);
     }
 
     /// <summary>
@@ -323,6 +319,7 @@ public enum AudioType
 
 public enum BGMName
 {
+    Title,
     Main
 }
 
@@ -332,5 +329,6 @@ public enum SEName
     On_Damage,
     Take_Damage,
     Kill_Enemy,
-    Running
+    Running,
+    Push_Button
 }
