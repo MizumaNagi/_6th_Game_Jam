@@ -6,16 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class FadeManager : MonoBehaviour
 {
-    public GameObject Panalfade;
-    Image fadealpha;
+    [SerializeField] private Image fadealpha;
     private float alpha;
-    private bool fadeout;
+    private bool fadeOut;
     private bool fadein;
-    public bool Fadeout 
+    public bool isStartFadeIn;
+
+    public bool Fadeout
     {
-        get 
+        get
         {
-            return fadeout;
+            return fadeOut;
         }
     }
     public bool Fadein
@@ -25,57 +26,68 @@ public class FadeManager : MonoBehaviour
             return fadein;
         }
     }
-    public int Main;
-    // Start is called before the first frame update
-    void Start()
+
+    public GameObject panelFade;
+    public string nextScene;
+
+    private void Start()
     {
-        fadealpha = Panalfade.GetComponent<Image>();
-        alpha = fadealpha.color.a;
-        fadein = true;
+        if(isStartFadeIn == true)
+        {
+            StartFadein();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (fadein == true)
         {
             FadeIn();
         }
-        if (fadeout == true)
+        if (fadeOut == true)
         {
             FadeOut();
         }
     }
+
     void FadeIn()
     {
-        alpha -= Time.deltaTime/3;
+        alpha -= Time.deltaTime / 2;
         fadealpha.color = new Color(0, 0, 0, alpha);
         if (alpha <= 0)
         {
             fadein = false;
-            Panalfade.SetActive(false);
+            panelFade.SetActive(false);
         }
     }
+
     void FadeOut()
     {
-        alpha += Time.deltaTime/3;
+        alpha += Time.deltaTime / 2;
         fadealpha.color = new Color(0, 0, 0, alpha);
         if (alpha >= 1)
         {
-            fadeout = false;
-            SceneManager.LoadScene("Fade" + Main);
+            StartFadein();
+            SceneManager.LoadScene(nextScene);
         }
     }
-        public void SceneMove()
-        {
-            fadeout = true;
-            Panalfade.SetActive(true);
+
+    public void SceneMove(bool b)
+    {
+        if (b) nextScene = "Main";
+        else nextScene = "Title";
+
+        fadein = false;
+        fadeOut = true;
+        panelFade.SetActive(true);
         alpha = 0;
-        }
+    }
+
     public void StartFadein()
     {
         fadein = true;
-        Panalfade.SetActive(true);
+        fadeOut = false;
+        panelFade.SetActive(true);
         alpha = 1;
     }
 }

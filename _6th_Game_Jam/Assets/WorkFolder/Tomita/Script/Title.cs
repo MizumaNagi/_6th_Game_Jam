@@ -6,15 +6,20 @@ using UnityEngine.SceneManagement;
 public class Title : MonoBehaviour
 {
     [SerializeField] private FadeManager fade;
-    private IEnumerator Scenefade()
+
+    private bool isOnce = false;
+
+    private void Scenefade(bool b)
     {
-        fade.SceneMove();
-        yield return new WaitWhile(() => fade.Fadeout == true);
-        SceneManager.LoadScene("Main");
+        fade.SceneMove(b);
+        isOnce = true;
+        //yield return new WaitWhile(() => fade.Fadeout == true);
+        //SceneManager.LoadScene("Main");
     }
     // Start is called before the first frame update
-    public void ButtonClick()
+    public void ButtonClick(int i)
     {
-        StartCoroutine(Scenefade());
+        bool b = i != 0 ? true : false;
+        if(isOnce == false) Scenefade(b);
     }
 }
