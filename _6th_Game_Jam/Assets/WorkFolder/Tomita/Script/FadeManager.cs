@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class FadeManager : MonoBehaviour
 {
@@ -70,6 +71,26 @@ public class FadeManager : MonoBehaviour
             StartFadein();
             SceneManager.LoadScene(nextScene);
         }
+    }
+
+    public IEnumerator PureFadeInOut(Action onCompFadeOut)
+    { 
+        fadealpha.color = new Color(0, 0, 0, 0);
+        panelFade.SetActive(true);
+        while(fadealpha.color.a < 1f)
+        {
+            yield return null;
+            fadealpha.color = new Color(0, 0, 0, fadealpha.color.a + Time.deltaTime / 2);
+        }
+
+        onCompFadeOut();
+
+        while(fadealpha.color.a > 0f)
+        {
+            yield return null;
+            fadealpha.color = new Color(0, 0, 0, fadealpha.color.a - Time.deltaTime / 2);
+        }
+        panelFade.SetActive(false);
     }
 
     public void SceneMove(bool b)

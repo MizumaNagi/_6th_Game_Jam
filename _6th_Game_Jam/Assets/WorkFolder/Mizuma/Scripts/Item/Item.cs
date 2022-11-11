@@ -9,7 +9,7 @@ public class Item : MonoBehaviour
 
     public TextMeshProUGUI powerText;
     public Rigidbody rb;
-    public BoxCollider collider;
+    public BoxCollider col;
 
     private const float delayEachDamage = 12f / 60f;
     private int healPoint;
@@ -56,7 +56,7 @@ public class Item : MonoBehaviour
         PlayerManager.Instance.StartMove();
         EffectManager.Instance.PlayEffect(EffectManager.EffectType.Death_Enemy, transform.position);
         Destroy(gameObject, 3f);
-        collider.enabled = false;
+        col.enabled = false;
         rb.isKinematic = false;
         rb.AddForce(new Vector3(Random.Range(0.8f, 1.2f), 1f, Random.Range(0.8f, 1.2f)) * 1000f);
         rb.AddTorque(new Vector3(Random.Range(10f, 100f), Random.Range(10f, 100f), Random.Range(10f, 100f)), ForceMode.VelocityChange);

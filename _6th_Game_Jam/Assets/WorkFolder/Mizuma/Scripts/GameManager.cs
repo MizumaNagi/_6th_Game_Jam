@@ -25,8 +25,11 @@ public class GameManager : SingletonClass<GameManager>
 
     private void Update()
     {
-        score += PlayerManager.Instance.GetScoreEachFrame();
-        uiManager.UpdateScoreUI(score);
+        if (isTutorial == false)
+        {
+            score += PlayerManager.Instance.GetScoreEachFrame();
+            uiManager.UpdateScoreUI(score);
+        }
     }
 
     public void EndTutorial()

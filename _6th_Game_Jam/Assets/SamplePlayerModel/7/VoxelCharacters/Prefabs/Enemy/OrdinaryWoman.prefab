@@ -796,7 +796,7 @@ MonoBehaviour:
   type: 2
   powerText: {fileID: 2536164397429300081}
   rb: {fileID: 6525260201371872151}
-  collider: {fileID: 8833374180351824119}
+  col: {fileID: 8833374180351824119}
 --- !u!65 &8833374180351824119
 BoxCollider:
   m_ObjectHideFlags: 0
