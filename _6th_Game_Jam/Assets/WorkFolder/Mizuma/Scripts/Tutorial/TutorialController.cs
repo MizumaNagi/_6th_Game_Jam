@@ -14,7 +14,6 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private PlayerMove playerMove;
     [SerializeField] private MapController mapCon;
 
-    private readonly Vector3 distanceToPlayer = new Vector3(1.67999995f, 1.722f, 5.82000017f);
     private const string aniLeaveName = "triLeave";
     private const string aniGroundName = "triGround";
 

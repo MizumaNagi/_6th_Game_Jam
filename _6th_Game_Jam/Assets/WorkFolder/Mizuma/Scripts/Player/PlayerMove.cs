@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private RailinfoBetweenArea[] railArr;
     [SerializeField] private Transform player;
     [SerializeField] private Transform childParent;
+    [SerializeField] private BoxCollider playerCol;
 
     private const float CanMoveHorizontalVal = 1.1f;
     private const bool useBezierMove = false;
@@ -136,6 +137,7 @@ public class PlayerMove : MonoBehaviour
 
     public IEnumerator GameEnd()
     {
+        playerCol.enabled = false;
         yield return null;
         isStop = true;
         StopCoroutine(loopPlayRunEffectCoroutine);
@@ -185,7 +187,7 @@ public class PlayerMove : MonoBehaviour
 
     public void SkipTutorial()
     {
-        totalDeltaTime = 104f;
+        totalDeltaTime = 110f;
         isTutorial = false;
         GameManager.Instance.EndTutorial();
     }

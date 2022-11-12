@@ -350,8 +350,8 @@ public class MapController : MonoBehaviour
 
     public void SkipTutorial()
     {
-        remNonMoveCnt -= 18;
-        currentPlayerPosIndex = 18;
+        remNonMoveCnt -= 19;
+        currentPlayerPosIndex = 19;
     }
 
     private enum ItemSpawnDiff

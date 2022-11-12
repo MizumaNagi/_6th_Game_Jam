@@ -536,6 +536,7 @@ MonoBehaviour:
   - {fileID: 0}
   player: {fileID: 4211053105720451563}
   childParent: {fileID: 8631731620572909504}
+  playerCol: {fileID: 4211053105720451566}
   isStop: 0
 --- !u!114 &3195130572252846437
 MonoBehaviour:

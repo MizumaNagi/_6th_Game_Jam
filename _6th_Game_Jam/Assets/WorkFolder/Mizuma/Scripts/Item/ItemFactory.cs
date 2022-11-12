@@ -19,10 +19,10 @@ public class ItemFactory : SingletonClass<ItemFactory>
         ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 2, new Vector3(-1f, 0f, 62f));
         ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 3, new Vector3(1f, 0f, 68f));
 
-        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 1, new Vector3(0f, 0f, 84f));
-        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 2, new Vector3(-1f, 0f, 88f));
-        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 2, new Vector3(1f, 0f, 88f));
-        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 9999, new Vector3(0f, 0f, 100f));
+        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 1, new Vector3(0f, 0f, 90f));
+        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 2, new Vector3(-1f, 0f, 94f));
+        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 2, new Vector3(1f, 0f, 94f));
+        ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 9999, new Vector3(0f, 0f, 106f));
 
         ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 2, new Vector3(0f, 0f, 120f));
         ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 1, new Vector3(-1f, 0f, 126f));
