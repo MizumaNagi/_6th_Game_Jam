@@ -8,7 +8,7 @@ public class MapController : MonoBehaviour
 
     private const int CastleMapInterval = 10;
     private const int InitGenerateItemGroup = 15;
-    private const int InitEmptyMapBlock = 20;
+    private const int InitEmptyMapBlock = 25;
     private const int DestroyItemMapBlocks = 5;
 
     private int difficulty = 500;

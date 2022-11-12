@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: -2153157701376411815}
   - component: {fileID: 1881142288158882233}
   - component: {fileID: -7146762228611694818}
+  - component: {fileID: -5645194637995828876}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Item
@@ -212,6 +213,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5645194637995828876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010675938078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7678835301f2b4db13fce0ebdddd13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!1 &1000010761091876
 GameObject:
   m_ObjectHideFlags: 0

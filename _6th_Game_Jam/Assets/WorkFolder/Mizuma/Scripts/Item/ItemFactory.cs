@@ -23,6 +23,11 @@ public class ItemFactory : SingletonClass<ItemFactory>
         ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 2, new Vector3(-1f, 0f, 88f));
         ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 2, new Vector3(1f, 0f, 88f));
         ItemFactory.Instance.CreateItem(Item.ItemType.Enemy, 9999, new Vector3(0f, 0f, 100f));
+
+        ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 2, new Vector3(0f, 0f, 120f));
+        ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 1, new Vector3(-1f, 0f, 126f));
+        ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 4, new Vector3(1f, 0f, 126f));
+        ItemFactory.Instance.CreateItem(Item.ItemType.Heal, 2, new Vector3(0f, 0f, 132f));
     }
 
     public GameObject CreateItem(Item.ItemType type, int effectPower, Vector3 pos, Vector3? rot = null)
@@ -51,6 +56,7 @@ public class ItemFactory : SingletonClass<ItemFactory>
                 item.powerText.enabled = false;
                 item.enabled = false;
                 newEnemy.GetComponent<BoxCollider>().enabled = false;
+                newEnemy.GetComponent<MoveMode>().enabled = false;
                 Destroy(newEnemy.GetComponent<Rigidbody>());
                 newEnemy.GetComponent<AnimationController>().OnItem();
             }

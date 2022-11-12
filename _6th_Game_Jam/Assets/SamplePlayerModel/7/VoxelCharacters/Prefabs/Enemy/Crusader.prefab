@@ -733,6 +733,7 @@ GameObject:
   - component: {fileID: -261324590015219071}
   - component: {fileID: 6775051564892316617}
   - component: {fileID: -3601989061522071121}
+  - component: {fileID: 6059446537377953918}
   m_Layer: 0
   m_Name: Crusader
   m_TagString: Item
@@ -839,6 +840,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6059446537377953918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000014000518406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7678835301f2b4db13fce0ebdddd13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!1 &1047385804125584810
 GameObject:
   m_ObjectHideFlags: 0

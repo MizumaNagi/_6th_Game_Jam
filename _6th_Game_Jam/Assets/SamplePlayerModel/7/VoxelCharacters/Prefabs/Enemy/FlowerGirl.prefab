@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 4048526258411322483}
   - component: {fileID: 8695169770640180009}
   - component: {fileID: -6901937779312607511}
+  - component: {fileID: 1378149056258300673}
   m_Layer: 0
   m_Name: FlowerGirl
   m_TagString: Item
@@ -304,6 +305,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1378149056258300673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010264933332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7678835301f2b4db13fce0ebdddd13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!1 &1000010783935416
 GameObject:
   m_ObjectHideFlags: 0
