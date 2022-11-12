@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: -8074925186606986272}
   - component: {fileID: 907943536523908482}
   - component: {fileID: -4928096490646428129}
+  - component: {fileID: 47727008970509566}
   m_Layer: 0
   m_Name: Chef
   m_TagString: Item
@@ -154,6 +155,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &47727008970509566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010447398366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7678835301f2b4db13fce0ebdddd13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!1 &1000010465003268
 GameObject:
   m_ObjectHideFlags: 0
